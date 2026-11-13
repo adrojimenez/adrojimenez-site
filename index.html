@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Adrián Jiménez, Lead Visual Designer and brand-focused creative leader in Costa Rica. Selected work, resume and contact.">
+<meta name="theme-color" content="#F2EFEA">
+<link rel="canonical" href="https://adrojimenez.com/">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Adrián Jiménez | Lead Visual Designer">
+<meta property="og:description" content="Brand strategy you can see. Selected work, resume and contact.">
+<meta property="og:url" content="https://adrojimenez.com/">
+<meta property="og:image" content="https://adrojimenez.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<title>Adrián Jiménez | Lead Visual Designer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap">
+<style>
+/* Layout: a calm rounded panel for the hero, then a bento grid of projects that re-compose on hover.
+   Palette: cream, deep green, mint and pink. Type: Geist, light and tightly set for the display sizes. */
+:root {
+  --bg: #F2EFEA;
+  --surface: #E9E5DD;
+  --line: #CFCABF;
+  --ink: #1A2B07;
+  --muted: #55604A;
+  --olive: #1B3206;
+  --olive-on: #F2EFEA;
+  --mint: #65D87B;
+  --pink: #FFBFD9;
+  --deep: #1B3206;
+  --cream: #F2EFEA;
+  --paper: #E1DCCF;
+  --art-a: #E9E5DD;
+  --art-b: #FFBFD9;
+  --olive-soft: #65D87B;
+  --font-display: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --font-text: "Geist", "Helvetica Neue", Arial, sans-serif;
+  --radius-tile: 20px;
+  --radius-ui: 999px;
+  --gap: 12px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0F1A06; --surface: #1A2B0C; --line: #2F4619; --ink: #F2EFEA; --muted: #B4BDA6;
+    --olive: #65D87B; --olive-on: #0F1A06; --paper: #F2EFEA;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0F1A06; --surface: #1A2B0C; --line: #2F4619; --ink: #F2EFEA; --muted: #B4BDA6;
+  --olive: #65D87B; --olive-on: #0F1A06; --paper: #F2EFEA;
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; background: var(--bg); color: var(--ink);
+  font-family: var(--font-text); font-size: 17px; line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--olive); outline-offset: 3px; border-radius: 6px; }
+.skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 8px; z-index: 20; }
+.skip:focus { top: 12px; }
+
+.wrap {
+  max-width: 1240px; margin-inline: auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+@media (min-width: 900px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--line); }
+.site-header .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 22px; }
+.brand { white-space: nowrap; font-family: var(--font-display); font-weight: 500; font-size: 1.15rem; letter-spacing: -0.01em; text-decoration: none; }
+.nav { display: flex; gap: 6px; }
+.nav a {
+  text-decoration: none; padding: 8px 16px; border-radius: var(--radius-ui);
+  font-size: 0.95rem; font-weight: 500; color: var(--muted);
+}
+.nav a:hover { color: var(--ink); background: var(--surface); }
+.nav a[aria-current="page"] { color: var(--ink); background: var(--surface); }
+@media (max-width: 520px) {
+  .site-header .wrap { gap: 8px; }
+  .brand { font-size: 1.05rem; }
+  .nav { gap: 0; }
+  .nav a { padding: 8px 10px; font-size: .9rem; }
+}
+
+/* Hero */
+.hero {
+  margin: 20px 0 var(--gap); padding: clamp(24px, 5vw, 64px); background: var(--surface); border-radius: 28px;
+  min-height: clamp(300px, 36vw, 440px); display: flex; flex-direction: column; justify-content: flex-end; gap: 16px;
+}
+.hero h1 {
+  margin: 0; font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.5rem, 7.2vw, 5.75rem); line-height: 0.98; letter-spacing: -0.045em;
+  max-width: 14ch; text-wrap: balance;
+}
+.hero p { margin: 0; max-width: 52ch; color: var(--muted); font-size: clamp(1.05rem, 1.6vw, 1.2rem); }
+.hero .role-line { color: var(--ink); font-weight: 500; font-size: clamp(1rem, 1.5vw, 1.15rem); }
+
+/* Bento grid */
+.grid {
+  display: grid; gap: var(--gap);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-auto-rows: 88px;
+  padding-bottom: clamp(48px, 7vw, 96px);
+}
+.tile {
+  position: relative; display: flex; flex-direction: column; min-width: 0;
+  border-radius: var(--radius-tile); overflow: hidden; background: var(--surface);
+  text-decoration: none; isolation: isolate;
+}
+.tile.s-a { grid-column: span 7; grid-row: span 5; }
+.tile.s-b { grid-column: span 5; grid-row: span 5; }
+.tile.s-c { grid-column: span 4; grid-row: span 4; }
+.tile.s-d { grid-column: span 4; grid-row: span 3; }
+.tile.s-e { grid-column: span 6; grid-row: span 3; }
+@media (max-width: 899px) {
+  .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 78px; }
+  .tile.s-a, .tile.s-b { grid-column: span 2; grid-row: span 4; }
+  .tile.s-c, .tile.s-d, .tile.s-e { grid-column: span 1; grid-row: span 3; }
+}
+@media (max-width: 520px) {
+  .tile.s-c, .tile.s-d, .tile.s-e { grid-column: span 2; grid-row: span 3; }
+}
+.art { position: relative; flex: 1; min-height: 0; container-type: size; overflow: hidden; }
+.frame {
+  position: absolute; inset: 0; opacity: 0; transform: translateY(7%) scale(1.04); filter: blur(12px);
+  transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1), filter .5s cubic-bezier(.2,.7,.2,1);
+}
+.frame.on { opacity: 1; transform: none; filter: none; }
+.cap {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px;
+  padding: 14px 18px; background: var(--surface);
+}
+.cap h2 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.2; }
+.cap span { font-size: 0.85rem; color: var(--muted); text-align: right; }
+.tile:hover .cap h2, .tile:focus-visible .cap h2 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
+
+/* Frame compositions */
+.f-blocks { display: grid; gap: 0; }
+.f-blocks i { display: block; }
+.f-mark { display: grid; place-items: center; background: var(--art-a); }
+.f-mark b {
+  font-family: var(--font-display); font-weight: 400; letter-spacing: -0.045em; line-height: 1;
+  font-size: clamp(2rem, 20cqw, 7rem); color: var(--deep); text-align: center; padding: 0 6%;
+}
+.f-pattern { background-color: var(--art-a); }
+
+/* Pages */
+.page { padding-bottom: clamp(48px, 7vw, 96px); }
+.back { display: inline-flex; align-items: center; gap: 8px; margin-top: 8px; padding: 8px 14px 8px 10px; border-radius: var(--radius-ui); text-decoration: none; color: var(--muted); font-weight: 500; font-size: .95rem; }
+.back:hover { background: var(--surface); color: var(--ink); }
+.page h1 {
+  margin: 28px 0 0; font-family: var(--font-display); font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -0.03em; text-wrap: balance; max-width: 18ch;
+}
+.lede { max-width: 58ch; margin: 18px 0 0; color: var(--muted); font-size: 1.15rem; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px 32px; margin: 36px 0; padding-block: 22px; border-block: 1px solid var(--line); }
+.meta dt { font-size: .85rem; color: var(--muted); }
+.meta dd { margin: 2px 0 0; font-weight: 500; }
+.hero-art { position: relative; aspect-ratio: 16 / 9; border-radius: var(--radius-tile); overflow: hidden; container-type: size; }
+.hero-art .frame { opacity: 1; transform: none; filter: none; }
+.cs { display: grid; gap: 28px; margin-block: 56px; }
+.cs section { display: grid; grid-template-columns: minmax(0, 1fr); gap: 8px; }
+@media (min-width: 800px) { .cs section { grid-template-columns: 220px minmax(0, 1fr); gap: 32px; } }
+.cs h2 { margin: 0; font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; letter-spacing: -0.01em; }
+.cs p { margin: 0; max-width: 62ch; }
+.todo { color: var(--muted); font-style: italic; }
+.shots { display: grid; gap: var(--gap); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.shots .shot { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-tile); overflow: hidden; container-type: size; }
+.shots .shot.wide { grid-column: span 2; aspect-ratio: 21 / 9; }
+.shots .frame { opacity: 1; transform: none; filter: none; }
+.note { margin-top: 20px; padding: 14px 18px; border-radius: 12px; background: var(--surface); color: var(--muted); font-size: .92rem; max-width: 62ch; }
+.next { display: flex; justify-content: space-between; align-items: center; gap: 16px; margin-top: 56px; padding: 22px 26px; border-radius: var(--radius-tile); background: var(--surface); text-decoration: none; }
+.next:hover strong { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 5px; }
+.next small { display: block; color: var(--muted); font-size: .85rem; }
+.next strong { font-family: var(--font-display); font-size: 1.4rem; font-weight: 500; letter-spacing: -0.02em; }
+
+/* About: mosaic */
+.mosaic { display: grid; gap: var(--gap); grid-template-columns: repeat(12, minmax(0, 1fr)); margin-top: 40px; }
+.m { grid-column: span 12; min-width: 0; background: var(--surface); border-radius: var(--radius-tile); padding: 24px; }
+.m h2 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.25rem; letter-spacing: -0.015em; line-height: 1.2; }
+.m .sub { margin: 4px 0 14px; color: var(--muted); font-size: .92rem; }
+.m p { margin: 0; }
+.pts { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; font-size: .97rem; }
+.m.stat { grid-column: span 6; display: flex; flex-direction: column; justify-content: flex-end; min-height: 150px; }
+.stat .n { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.04em; line-height: 1; }
+.stat .t { margin-top: 8px; color: var(--muted); font-size: .92rem; line-height: 1.35; }
+.m.mint { background: var(--mint); color: var(--deep); }
+.m.pink { background: var(--pink); color: var(--deep); }
+.m.mint .t, .m.pink .t { color: var(--deep); }
+.band { --band-pad: clamp(24px, 4vw, 56px); padding-block: var(--band-pad); border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+.about-hero { position: relative; display: grid; gap: 28px; align-items: center; }
+.about-hero h1 { margin: 0; max-width: none; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -0.045em; text-wrap: balance; }
+.about-hero .role-line { margin: 0 0 14px; font-weight: 500; font-size: 1.1rem; }
+.about-hero .lede { margin: 22px 0 8px; }
+.about-hero figure { margin: 0; }
+.about-hero img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 50% 22%; border-radius: 28px; }
+@media (min-width: 900px) {
+  .about-hero { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 56px; }
+  .about-hero::before { content: ""; position: absolute; left: 50%; top: calc(-1 * var(--band-pad)); bottom: calc(-1 * var(--band-pad)); width: 1px; background: var(--line); }
+}
+.m.olive { background: var(--mint); color: var(--deep); }
+.m.olive .sub { color: inherit; }
+.m.olive .btn { background: var(--deep); color: var(--cream); }
+.groups { margin: 0; display: grid; gap: 14px; }
+.groups dt { font-size: .85rem; color: var(--muted); margin-bottom: 6px; }
+.groups dd { margin: 0; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.chips li { padding: 6px 12px; border-radius: var(--radius-ui); background: var(--bg); font-size: .9rem; }
+.plain { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; font-size: .97rem; }
+.plain span { display: block; color: var(--muted); font-size: .88rem; }
+.btn { display: inline-block; margin-top: 16px; padding: 12px 22px; border-radius: var(--radius-ui); background: var(--olive); color: var(--olive-on); text-decoration: none; font-weight: 500; }
+.btn:hover { filter: brightness(1.08); }
+@media (min-width: 900px) {
+  .m.stat { grid-column: span 3; }
+  .m.c3 { grid-column: span 3; } .m.c4 { grid-column: span 4; } .m.c5 { grid-column: span 5; }
+  .m.c7 { grid-column: span 7; } .m.c8 { grid-column: span 8; }
+}
+
+/* Footer */
+.site-footer { border-top: 1px solid var(--line); }
+.site-footer .wrap { display: grid; gap: 0; padding-block: 0; }
+.site-footer .wrap > div { padding-block: 40px; }
+@media (min-width: 800px) {
+  .site-footer .wrap { grid-template-columns: 1.4fr 1fr 1fr; }
+  .site-footer .wrap > div { padding-block: 48px 56px; }
+  .site-footer .wrap > div + div { border-left: 1px solid var(--line); padding-left: 32px; }
+}
+.site-footer h2 { margin: 0 0 8px; font-family: var(--font-display); font-weight: 400; font-size: clamp(1.8rem, 3.5vw, 2.6rem); letter-spacing: -0.03em; line-height: 1.05; max-width: 14ch; }
+.site-footer p { margin: 0; color: var(--muted); }
+.site-footer .lbl { font-size: .85rem; color: var(--muted); margin-bottom: 4px; }
+.site-footer a { text-underline-offset: 3px; }
+.site-footer .sel { user-select: all; font-weight: 500; }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .frame { transition: none; }
+}
+</style>
+</head>
+<body>
+
+
+<a class="skip" href="#main">Skip to content</a>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#" data-nav>Adrián Jiménez</a>
+    <nav class="nav" aria-label="Main">
+      <a href="#" data-key="home" data-nav>Work</a>
+      <a href="#about" data-key="about" data-nav>About</a>
+      <a href="#contact" id="contactLink">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main" tabindex="-1"><noscript><div class="wrap page"><h1>Adrián Jiménez</h1><p class="lede">Lead Visual Designer. Please enable JavaScript to see my work.</p></div></noscript></main>
+
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <div>
+      <h2>Let's talk about your next project.</h2>
+    </div>
+    <div>
+      <p class="lbl">Email</p>
+      <p class="sel"><a href="mailto:adrianjimenezn@gmail.com">adrianjimenezn@gmail.com</a></p>
+      <p class="lbl" style="margin-top:16px">Phone</p>
+      <p class="sel">+506 8706-0833</p>
+      <p class="lbl" style="margin-top:16px">Elsewhere</p>
+      <p><a href="https://www.linkedin.com/in/adrianjimenezn" target="_blank" rel="noopener">LinkedIn</a></p>
+    </div>
+    <div>
+      <p class="lbl">Based in</p>
+      <p>Costa Rica</p>
+      <p class="lbl" style="margin-top:16px">Languages</p>
+      <p>English, Spanish</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var PROJECTS = [
+    { slug: 'hr-tech-booth', title: 'HR Tech Booth', cat: 'Experience design', mark: 'HR Tech', size: 's-a', seed: 0, order: ['pattern','blocks','mark'],
+      role: 'Owned design and delivery', team: 'Strategic marketers, event planners, account managers, creative team, production vendor', ctx: 'Deloitte Human Capital',
+      lede: 'Designed and delivered the booth for one of the practice’s most important events, from concept to print-ready assets.',
+      roleText: 'Owned the design and delivery from concept to print-ready assets. Coordinated through multiple sprints with strategic marketers, event planners, account managers and the creative team, then handed off to the production vendor for printing and installation.',
+      outcomeText: 'The booth was very well received.' },
+    { slug: 'delisoy', title: 'Delisoy', cat: 'Tresunotres · Brand redesign + packaging', mark: 'Delisoy', size: 's-b', seed: 1, order: ['blocks','mark','pattern'],
+      role: 'Brand and packaging design', team: 'Agency creative directors and account executive (Ecuador, Nicaragua) with the Tresunotres team in Costa Rica', ctx: 'Tresunotres, regional project',
+      lede: 'A regional brand redesign, including packaging, built across three countries by the Tresunotres team in Costa Rica with an agency’s creative directors and account executive from Ecuador and Nicaragua.' },
+    { slug: 'driv-refreshes', title: 'DRiV brand refreshes', cat: 'Brand identity', mark: 'DRiV', size: 's-c', seed: 2, order: ['mark','pattern','blocks'],
+      role: 'Lead designer, co-lead of the refresh', team: 'Creative Director, 7 to 9 designers and animators', ctx: 'DRiV (13 vehicle parts brands), Wondersauce',
+      lede: 'Co-led the long-awaited refresh of 7 of DRiV’s 13 brands.',
+      roleText: 'Led a team of 7 to 9 designers and animators, organizing workloads and reviewing output. Co-led the refresh of 7 of the 13 brands with the Creative Director, conceptualizing the redesigns and directing the team’s proposals. Ran daily stand-ups with the leadership team to align expectations and delivery timelines.',
+      outcomeText: 'Most refreshes were approved by the client, several on the first round, and were well received.' },
+    { slug: 'human-capital', title: 'Human Capital identity', cat: 'Brand identity', mark: 'Human Capital', size: 's-c', seed: 0, order: ['blocks','pattern','mark'],
+      role: 'Visual identity, end to end', team: 'Human Capital manager, Deloitte creative team', ctx: 'Deloitte Human Capital',
+      lede: 'Developed the practice’s visual identity from first proposal to rollout.',
+      roleText: 'Partnered with the Human Capital manager on every stage: conceptual proposal, moodboards, concept approval, graphic development, brand guidelines and rollout. Applied the approved identity across d.com, social cards and event visuals, keeping the brand consistent across segments.',
+      approachText: 'Used AI tools, including Adobe Firefly, Claude, Marketing Workbench and Sidekick, to produce a large share of the imagery, refining prompts and combining multiple models. The images made it into final materials and deliverables.' },
+    { slug: 'driv-web', title: 'DRiV websites', cat: 'Web design', mark: 'DRiV web', size: 's-c', seed: 1, order: ['pattern','mark','blocks'],
+      role: 'Web design', team: 'Creative Director, Wondersauce team', ctx: 'DRiV, Wondersauce',
+      lede: 'Brand websites and internal web pages for DRiV.',
+      roleText: 'Partnered with the Creative Director on the design of DRiV’s internal web pages while keeping hands-on design ownership.' },
+    { slug: 'exploring', title: 'Exploring', cat: 'Fokus · Original series', mark: 'Series', size: 's-d', seed: 0, order: ['mark','pattern','blocks'],
+      role: 'Co-creator, with my Fokus partners', team: 'Fokus partners', ctx: 'Fokus, with ICT and PROCOMER',
+      lede: 'A series about Costa Rica as a tourist destination, created to build our reel from zero and sold to the national tourism board.',
+      challengeText: 'We were starting a production company with no clients and no demo reel.',
+      approachText: 'We created our own project: videos about Costa Rica as a tourist destination. We shot a pilot and sold it to the Costa Rican Tourism Board (ICT), which together with PROCOMER, the country’s foreign trade promotion agency, manages the Essential Costa Rica country brand. Two seasons followed, 10 episodes in total, on tourist regions, traditions and culture, and gastronomy.',
+      roleText: 'Developed with my Fokus partners, from the pilot to the full series.',
+      outcomeText: 'The series became our reel. It brought in our first clients, and the studio grew into productions of every kind.' },
+    { slug: 'agency-identity', title: 'Agency work: identity', cat: 'Selected projects', mark: 'Identity', size: 's-d', seed: 2, order: ['mark','blocks','pattern'],
+      role: 'Designer', team: 'Agency teams', ctx: 'FCB San José, House Rapp, McCann, Halsband, Fokus',
+      lede: 'A selection of brand identity projects from my agency years.' },
+    { slug: 'agency-packaging', title: 'Agency work: packaging', cat: 'Selected projects', mark: 'Pack', size: 's-d', seed: 0, order: ['pattern','mark','blocks'],
+      role: 'Designer', team: 'Agency teams', ctx: 'FCB San José, House Rapp, McCann, Halsband, Fokus',
+      lede: 'A selection of packaging projects from my agency years.' },
+    { slug: 'agency-digital', title: 'Agency work: digital', cat: 'Selected projects', mark: 'Digital', size: 's-d', seed: 1, order: ['blocks','pattern','mark'],
+      role: 'Designer', team: 'Agency teams', ctx: 'FCB San José, House Rapp, McCann, Halsband, Fokus',
+      lede: 'A selection of digital projects from my agency years.' },
+    { slug: 'tres-identities', title: 'Brand identities', cat: 'Tresunotres · Identity', mark: 'Brands', size: 's-d', seed: 2, order: ['pattern','blocks','mark'],
+      role: 'Brand strategy and design', team: 'Tresunotres, a two-person studio', ctx: 'Tresunotres',
+      lede: 'Brand identities across many categories, from concept and client presentation to final delivery.' },
+    { slug: 'tres-brand-books', title: 'Brand books', cat: 'Tresunotres · Guidelines', mark: 'Books', size: 's-d', seed: 1, order: ['blocks','mark','pattern'],
+      role: 'Brand strategy and design', team: 'Tresunotres, a two-person studio', ctx: 'Tresunotres',
+      lede: 'Brand books with photography guidelines for food and lifestyle brands.',
+      approachText: 'Brand books that include photography guidelines.' }
+  ];
+
+  var BLOCK_LAYOUTS = [
+    ['1.4fr 1fr / 1fr 1fr', ['var(--deep)','var(--pink)','var(--mint)','var(--paper)']],
+    ['1fr 1fr / 1fr 1.5fr', ['var(--mint)','var(--deep)','var(--pink)','var(--paper)']],
+    ['1fr 1fr / 1.6fr 1fr', ['var(--pink)','var(--mint)','var(--paper)','var(--deep)']]
+  ];
+  var ART_BG = ['var(--mint)', 'var(--pink)', 'var(--paper)'];
+  var PATTERNS = [
+    'repeating-linear-gradient(135deg, var(--deep) 0 14px, transparent 14px 34px)',
+    'repeating-radial-gradient(circle at 70% 60%, var(--deep) 0 10px, transparent 10px 30px)',
+    'radial-gradient(var(--deep) 3.5px, transparent 4px) 0 0 / 28px 28px'
+  ];
+
+  function frame(kind, p, k) {
+    var s = (p.seed + (k || 0)) % 3;
+    if (kind === 'blocks') {
+      var L = BLOCK_LAYOUTS[s], parts = L[0].split(' / ');
+      var cells = L[1].map(function (c) { return '<i style="background:' + c + '"></i>'; }).join('');
+      return '<div class="frame f-blocks" style="grid-template-rows:' + parts[0] + ';grid-template-columns:' + parts[1] + '">' + cells + '</div>';
+    }
+    if (kind === 'mark') {
+      var bg = ART_BG[(s + 2) % 3];
+      return '<div class="frame f-mark" style="background:' + bg + '"><b>' + p.mark + '</b></div>';
+    }
+    return '<div class="frame f-pattern" style="background:' + PATTERNS[s] + ' ' + ART_BG[s] + '"></div>';
+  }
+
+  function tileHTML(p) {
+    var frames = p.order.map(function (k) { return frame(k, p); }).join('');
+    return '<a class="tile ' + p.size + '" href="#work-' + p.slug + '" data-nav>' +
+      '<div class="art" aria-hidden="true">' + frames + '</div>' +
+      '<div class="cap"><h2>' + p.title + '</h2><span>' + p.cat + '</span></div></a>';
+  }
+
+  function homeHTML() {
+    return '<div class="wrap"><section class="hero"><p class="role-line">Lead Visual Designer, based in Costa Rica</p><h1>Brand strategy you can see.</h1>' +
+      '<p>15+ years across agencies, studios I helped build and Deloitte, leading creative work from the first conversation to the final file.</p></section>' +
+      '<section class="grid" aria-label="Selected work">' + PROJECTS.map(tileHTML).join('') + '</section></div>';
+  }
+
+  function sec(label, text, prompt) {
+    return '<section><h2>' + label + '</h2><p' + (text ? '' : ' class="todo"') + '>' + (text || prompt) + '</p></section>';
+  }
+
+  function projectHTML(p, i) {
+    var next = PROJECTS[(i + 1) % PROJECTS.length];
+    var heroArt = '<div class="hero-art">' + frame(p.order[0], p, 0) + '</div>';
+    var shots = '<div class="shots"><div class="shot wide">' + frame(p.order[1], p, 1) + '</div>' +
+      '<div class="shot">' + frame(p.order[2], p, 2) + '</div><div class="shot">' + frame(p.order[0], p, 2) + '</div></div>';
+    return '<div class="wrap page"><a class="back" href="#" data-nav><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</a>' +
+      '<h1 id="pageTitle" tabindex="-1">' + p.title + '</h1><p class="lede">' + p.lede + '</p>' +
+      '<dl class="meta"><div><dt>Role</dt><dd>' + p.role + '</dd></div><div><dt>Team</dt><dd>' + p.team + '</dd></div><div><dt>Context</dt><dd>' + p.ctx + '</dd></div></dl>' +
+      heroArt +
+      '<div class="cs">' +
+      sec('Challenge', p.challengeText, 'What the client needed and what was at stake, in two or three sentences.') +
+      sec('Approach', p.approachText, 'The strategy and the key design decisions, and why you made them.') +
+      sec('My role', p.roleText, 'What you led, who you coordinated, and how the work moved from brief to delivery.') +
+      sec('Outcome', p.outcomeText, 'What changed because of the work: results, numbers, feedback.') + '</div>' +
+      shots +
+      '<p class="note">Draft layout. Images and copy shown here are placeholders and will be replaced with the real project material.</p>' +
+      '<a class="next" href="#work-' + next.slug + '" data-nav><span><small>Next project</small><strong>' + next.title + '</strong></span>' +
+      '<svg width="22" height="22" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>';
+  }
+
+  function aboutHTML() {
+    function pts(a) { return '<ul class="pts">' + a.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
+    function chips(a) { return '<ul class="chips">' + a.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
+    return '<div class="band"><div class="wrap"><div class="about-hero"><div class="ah-text"><p class="role-line">Lead Visual Designer</p><h1 id="pageTitle" tabindex="-1">Adrián Jiménez</h1>' +
+      '<p class="lede">Brand-focused creative leader with 15+ years across advertising agencies, studios I helped build, and Deloitte. I guide branding projects from concept through client presentation and rollout.</p>' +
+      '<a class="btn" href="Adrian-Jimenez-CV.pdf">Download CV (PDF)</a></div>' +
+      '<figure><img src="images/adrian.jpg" alt="Portrait of Adrián Jiménez" width="1184" height="1480"></figure></div></div></div>' +
+      '<div class="wrap page"><div class="mosaic">' +
+      '<div class="m stat mint"><div class="n">15+</div><div class="t">years across agencies, studios I helped build and Deloitte</div></div>' +
+      '<div class="m stat"><div class="n">9</div><div class="t">designers and animators led on DRiV, from entry level to team leads</div></div>' +
+      '<div class="m stat pink"><div class="n">7</div><div class="t">DRiV brands refreshed, co-led with the Creative Director</div></div>' +
+      '<div class="m stat"><div class="n">20+</div><div class="t">people co-directed on production crews, with my two partners</div></div>' +
+
+      '<div class="m c7"><h2>Deloitte</h2><p class="sub">Senior Graphic Designer, Consulting · Jun 2025 to present</p>' + pts([
+        'Developed the Human Capital visual identity end to end with the practice’s manager: concept, moodboards, brand guidelines and rollout across d.com, social and events.',
+        'Owned the design and delivery of the HR Tech booth, from concept to print-ready assets, across multiple sprints.',
+        'Produced much of the Human Capital imagery with AI tools, refining prompts and combining models.',
+        'Guided UI designers on image selection and look and feel for internal d.com pages.'
+      ]) + '</div>' +
+      '<div class="m c5"><h2>Wondersauce</h2><p class="sub">Lead Designer · Aug 2024 to Jun 2025<br>Senior Production Designer · 2021 to Aug 2024</p>' + pts([
+        'Led 7 to 9 designers and animators on DRiV, a group of 13 vehicle parts brands, from entry-level designers to leads from other teams.',
+        'Co-led the refresh of 7 brands with the Creative Director. Most were approved, several on the first round.',
+        'Worked on the Chandon account and held interim art direction for three months before promotion to Lead.'
+      ]) + '</div>' +
+
+      '<div class="m c4"><h2>Tresunotres</h2><p class="sub">Co-founder, Brand Strategy and Design · 2021 to 2025</p>' + pts([
+        'Two-person branding studio with 20+ projects delivered.',
+        'Strategy first: every branding project rests on broad strategic work before the design phase.',
+        'Worked with all kinds of brands, from local entrepreneurs to larger regional companies.',
+        'Brand identities and brand books with photography guidelines, from concept to client presentation and delivery.'
+      ]) + '</div>' +
+      '<div class="m c4"><h2>Fokus</h2><p class="sub">Co-founder and Chief Creative Officer · 2016 to 2021</p>' + pts([
+        'Grew an audiovisual production company into a creative studio.',
+        'Created Exploring, a series on Costa Rica sold to the national tourism board. It became our reel and brought in our first clients.',
+        'Directed crews of up to 20 on commercials and led all branding projects.',
+        'Served as art director on commercials, music videos and branded content.'
+      ]) + '</div>' +
+      '<div class="m c4"><h2>Earlier</h2><p class="sub">Advertising agencies</p><ul class="plain">' +
+        '<li>FCB San José<span>Lead Designer · 2014 to 2016</span></li>' +
+        '<li>House Rapp<span>Senior Designer · 2013 to 2014</span></li>' +
+        '<li>McCann Worldgroup<span>Mid Designer · 2012 to 2013</span></li>' +
+        '<li>Halsband Worldwide Partners<span>Junior Designer · 2010 to 2012</span></li></ul></div>' +
+
+      '<div class="m c4"><h2>Community and mentoring</h2><p class="sub">Developing designers and teams</p>' + pts([
+        'Co-created the Design Sessions, a recurring forum for Costa Rica’s designers across teams.',
+        'Mentored a junior designer from Deloitte’s SHINE internship program.',
+        'Buddy to an L35 new hire on the brand strategy team.',
+        'Part of the Costa Rica Local Community team, organizing events and activities for the BM&amp;C department.'
+      ]) + '</div>' +
+      '<div class="m c8"><h2>Skills and tools</h2><p class="sub">What I bring to a team</p><dl class="groups">' +
+        '<div><dt>Leadership</dt><dd>' + chips(['Team leadership','Design review','Mentoring','Stakeholder management','Client presentations']) + '</dd></div>' +
+        '<div><dt>Creative</dt><dd>' + chips(['Brand strategy and identity','Brand guidelines','Art direction','Conceptualization and copywriting','Packaging','Editorial design']) + '</dd></div>' +
+        '<div><dt>Process</dt><dd>' + chips(['Agile','Workfront','Cross-channel campaigns']) + '</dd></div>' +
+        '<div><dt>Tools</dt><dd>' + chips(['Figma','Sketch','Illustrator','Photoshop','InDesign','Microsoft Office','Adobe Firefly','Claude','ChatGPT','Gemini','Marketing Workbench','Sidekick']) + '</dd></div></dl></div>' +
+
+      '<div class="m c5"><h2>Education</h2><p class="sub">Degree and ongoing training</p><ul class="plain">' +
+        '<li>Bachelor in Advertising Design<span>Universidad de las Ciencias y el Arte · 2006 to 2009</span></li>' +
+        '<li>Copywriting and Creative Direction<span>Animal Ad School · 2012 to 2013</span></li>' +
+        '<li>Branding workshop with Daniela Garza<span>Mesa Roja · 2020</span></li>' +
+        '<li>Domestika courses with Sagi Haviv, Quique Ollervides and Studio Yeyé<span>Since 2020</span></li></ul></div>' +
+      '<div class="m c4"><h2>Awards and recognition</h2><p class="sub">Creative work, recognized</p><ul class="plain">' +
+        '<li>Silver Effie<span>With my team at McCann</span></li>' +
+        '<li>Bronze at CR Festival Volcán<span>Costa Rica’s creativity festival. Developed with my copywriter partner from concept to final execution, led by the CCO and art director, at House Rapp</span></li></ul></div>' +
+      '<div class="m c3"><h2>Languages</h2><p class="sub">Bilingual</p>' + chips(['English','Spanish']) + '</div>' +
+      '<div class="m c4 olive"><h2>Resume</h2><p class="sub">My resume as a PDF.</p><a class="btn" href="Adrian-Jimenez-CV.pdf">Download CV (PDF)</a></div>' +
+      '<div class="m c8"><h2>How this site is built</h2><p class="sub">The same care I bring to client work</p><p>I art-directed this site and built it with AI, using Claude with GitHub and Vercel, and I also work with ChatGPT and Gemini. Text meets AA contrast in light and dark, every project opens from a keyboard-reachable link, focus is always visible, and the tile animations pause for anyone who prefers reduced motion.</p></div>' +
+      '</div></div>';
+  }
+
+  var main = document.getElementById('main');
+  var timers = [], observers = [];
+
+  function stopAll() {
+    timers.forEach(clearInterval); timers = [];
+    observers.forEach(function (o) { o.disconnect(); }); observers = [];
+  }
+
+  function wireTiles() {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var touch = window.matchMedia('(hover: none)').matches;
+    document.querySelectorAll('.tile').forEach(function (tile) {
+      var frames = tile.querySelectorAll('.frame'), idx = 0, t = null;
+      function show(n) { frames.forEach(function (f, j) { f.classList.toggle('on', j === n); }); }
+      show(0);
+      if (reduce) return;
+      function start() { if (t) return; t = setInterval(function () { idx = (idx + 1) % frames.length; show(idx); }, 1100); timers.push(t); setTimeout(function () { if (t) { idx = (idx + 1) % frames.length; show(idx); } }, 0); }
+      function stop() { clearInterval(t); t = null; idx = 0; show(0); }
+      if (touch) {
+        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: 0.6 });
+        io.observe(tile); observers.push(io);
+      } else {
+        tile.addEventListener('mouseenter', start); tile.addEventListener('mouseleave', stop);
+        tile.addEventListener('focus', start); tile.addEventListener('blur', stop);
+      }
+    });
+  }
+
+  function render(first) {
+    stopAll();
+    var h = location.hash.slice(1), key = 'home';
+    if (h.indexOf('work-') === 0) {
+      var slug = h.slice(5), i = PROJECTS.findIndex(function (p) { return p.slug === slug; });
+      if (i > -1) { main.innerHTML = projectHTML(PROJECTS[i], i); key = 'work'; document.title = PROJECTS[i].title + ' | Adrián Jiménez'; }
+      else { main.innerHTML = homeHTML(); document.title = 'Adrián Jiménez'; }
+    } else if (h === 'about') {
+      main.innerHTML = aboutHTML(); key = 'about'; document.title = 'About | Adrián Jiménez';
+    } else {
+      main.innerHTML = homeHTML(); document.title = 'Adrián Jiménez';
+    }
+    document.querySelectorAll('.nav a[data-key]').forEach(function (a) {
+      var on = a.dataset.key === key || (key === 'work' && a.dataset.key === 'home');
+      if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
+    });
+    wireTiles();
+    if (!first) {
+      window.scrollTo(0, 0);
+      var t = document.getElementById('pageTitle'); (t || main).focus({ preventScroll: true });
+    }
+  }
+
+  document.getElementById('contactLink').addEventListener('click', function (e) {
+    e.preventDefault(); document.getElementById('contact').scrollIntoView();
+  });
+  window.addEventListener('hashchange', function () { render(false); });
+  render(true);
+})();
+</script>
+
+</body>
+</html>
