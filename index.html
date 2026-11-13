@@ -14,11 +14,13 @@
 <meta property="og:image" content="https://adrojimenez.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
 <title>Adrián Jiménez | Lead Visual Designer</title>
+<meta name="color-scheme" content="light only">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@300..700&display=swap">
 <style>
-/* Layout: a calm rounded panel for the hero, then a bento grid of projects that re-compose on hover.
+/* The design commits to one light look, so the page ignores the viewer's dark mode.
+   Layout: a calm rounded panel for the hero, then a bento grid of projects that re-compose on hover.
    Palette: cream, deep green, mint and pink. Type: Geist, light and tightly set for the display sizes. */
 :root {
   --bg: #F2EFEA;
@@ -41,20 +43,8 @@
   --radius-tile: 20px;
   --radius-ui: 999px;
   --gap: 12px;
+  color-scheme: light;
 }
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #0F1A06; --surface: #1A2B0C; --line: #2F4619; --ink: #F2EFEA; --muted: #B4BDA6;
-    --olive: #65D87B; --olive-on: #0F1A06; --paper: #F2EFEA;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #0F1A06; --surface: #1A2B0C; --line: #2F4619; --ink: #F2EFEA; --muted: #B4BDA6;
-  --olive: #65D87B; --olive-on: #0F1A06; --paper: #F2EFEA;
-  color-scheme: dark;
-}
-
 *, *::before, *::after { box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
@@ -64,6 +54,7 @@ body {
 }
 a { color: inherit; }
 :focus-visible { outline: 3px solid var(--olive); outline-offset: 3px; border-radius: 6px; }
+#main:focus, #pageTitle:focus, .page h1:focus { outline: none; }
 .skip { position: absolute; left: 16px; top: -60px; background: var(--ink); color: var(--bg); padding: 10px 16px; border-radius: 8px; z-index: 20; }
 .skip:focus { top: 12px; }
 
