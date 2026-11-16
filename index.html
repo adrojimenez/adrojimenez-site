@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="Adrián Jiménez, Lead Visual Designer and brand-focused creative leader in Costa Rica. Selected work, resume and contact.">
+<meta name="description" content="Adrián Jiménez, Lead Visual Designer and creative leader in Costa Rica. Selected work, resume and contact.">
 <meta name="theme-color" content="#F2EFEA">
 <link rel="canonical" href="https://adrojimenez.com/">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Adrián Jiménez | Lead Visual Designer">
-<meta property="og:description" content="Brand strategy you can see. Selected work, resume and contact.">
+<meta property="og:description" content="Design that carries the message. Selected work, resume and contact.">
 <meta property="og:url" content="https://adrojimenez.com/">
 <meta property="og:image" content="https://adrojimenez.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -21,7 +21,7 @@
 <style>
 /* The design commits to one light look, so the page ignores the viewer's dark mode.
    Layout: a calm rounded panel for the hero, then a bento grid of projects that re-compose on hover.
-   Palette: cream, deep green, mint and pink. Type: Geist, light and tightly set for the display sizes. */
+   Palette: cream, deep green, moss and mint, with pink reserved for calls to action. Type: Geist, light and tightly set for the display sizes. */
 :root {
   --bg: #F2EFEA;
   --surface: #E9E5DD;
@@ -36,7 +36,8 @@
   --cream: #F2EFEA;
   --paper: #E1DCCF;
   --art-a: #E9E5DD;
-  --art-b: #FFBFD9;
+  --art-b: #E1DCCF;
+  --moss: #55604A;
   --olive-soft: #65D87B;
   --font-display: "Geist", "Helvetica Neue", Arial, sans-serif;
   --font-text: "Geist", "Helvetica Neue", Arial, sans-serif;
@@ -113,9 +114,10 @@ a { color: inherit; }
 .tile.s-c { grid-column: span 4; grid-row: span 4; }
 .tile.s-d { grid-column: span 4; grid-row: span 3; }
 .tile.s-e { grid-column: span 6; grid-row: span 3; }
+.tile.s-f { grid-column: span 6; grid-row: span 4; }
 @media (max-width: 899px) {
   .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 78px; }
-  .tile.s-a, .tile.s-b { grid-column: span 2; grid-row: span 4; }
+  .tile.s-a, .tile.s-b, .tile.s-f { grid-column: span 2; grid-row: span 4; }
   .tile.s-c, .tile.s-d, .tile.s-e { grid-column: span 1; grid-row: span 3; }
 }
 @media (max-width: 520px) {
@@ -127,10 +129,9 @@ a { color: inherit; }
   transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1), filter .5s cubic-bezier(.2,.7,.2,1);
 }
 .frame.on { opacity: 1; transform: none; filter: none; }
-.cap {
-  display: flex; align-items: center; justify-content: space-between; gap: 12px;
-  padding: 14px 18px; background: var(--surface);
-}
+.cap { padding: 14px 18px 16px; background: var(--surface); }
+.cap-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
+.cap p { margin: 4px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.4; max-width: 60ch; }
 .cap h2 { margin: 0; font-family: var(--font-display); font-weight: 500; font-size: 1.05rem; letter-spacing: -0.01em; line-height: 1.2; }
 .cap span { font-size: 0.85rem; color: var(--muted); text-align: right; }
 .tile:hover .cap h2, .tile:focus-visible .cap h2 { text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: 4px; }
@@ -164,6 +165,44 @@ a { color: inherit; }
 @media (min-width: 800px) { .cs section { grid-template-columns: 220px minmax(0, 1fr); gap: 32px; } }
 .cs h2 { margin: 0; font-family: var(--font-display); font-size: 1.2rem; font-weight: 500; letter-spacing: -0.01em; }
 .cs p { margin: 0; max-width: 62ch; }
+.prose { display: grid; gap: 14px; }
+.f-img img, .hero-art > img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.hero-art > img { position: absolute; inset: 0; }
+.gal { display: grid; gap: var(--gap); grid-template-columns: repeat(12, minmax(0, 1fr)); margin-top: var(--gap); }
+.gal figure { position: relative; margin: 0; grid-column: span var(--mspan, 12); aspect-ratio: var(--ratio, 16 / 9); border-radius: var(--radius-tile); overflow: hidden; background: #0d0d0d; }
+.gal img, .gal video { display: block; width: 100%; height: 100%; object-fit: cover; }
+@media (min-width: 700px) { .gal figure { grid-column: span var(--span, 12); } .gal figure.fill { aspect-ratio: auto; align-self: stretch; } .gal figure.fill img { position: absolute; inset: 0; } }
+.vid-btn { position: absolute; left: 12px; bottom: 12px; padding: 6px 14px; border-radius: var(--radius-ui); border: 0; background: var(--cream); color: var(--deep); font: inherit; font-size: .85rem; font-weight: 500; cursor: pointer; }
+.vid-btn:hover { background: var(--mint); }
+.marq { grid-column: span 12; display: grid; gap: 10px; }
+.marq-viewport { overflow: hidden; border-radius: var(--radius-tile);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.marq-track { display: flex; width: max-content; animation: marq-slide 60s linear infinite; }
+.marq-group { display: flex; gap: var(--gap); margin: 0; padding: 0 var(--gap) 0 0; list-style: none; }
+.marq .m.stat { flex: 0 0 auto; grid-column: auto; width: clamp(210px, 62vw, 260px); min-height: 170px; }
+.marq:hover .marq-track, .marq:focus-within .marq-track, .marq.paused .marq-track { animation-play-state: paused; }
+@keyframes marq-slide { to { transform: translateX(-50%); } }
+.marq-btn { justify-self: start; padding: 6px 16px; border-radius: var(--radius-ui); border: 1px solid var(--line); background: transparent; color: var(--muted); font: inherit; font-size: .85rem; font-weight: 500; cursor: pointer; }
+.marq-btn:hover { background: var(--surface); color: var(--ink); }
+@media (prefers-reduced-motion: reduce) {
+  .marq-track { animation: none; }
+  .marq-viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; scroll-snap-type: x proximity; }
+  .marq-group[aria-hidden] { display: none; }
+  .marq .m.stat { scroll-snap-align: start; }
+  .marq-btn { display: none; }
+}
+.nums { display: grid; gap: var(--gap); grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.nums > .m.stat { grid-column: auto; min-height: 140px; padding: 20px; }
+.nums .n { font-size: clamp(1.8rem, 3.4vw, 2.6rem); }
+@media (min-width: 700px) { .nums { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+.cs .chips li { background: var(--surface); }
+.facts { margin: 0; display: grid; gap: 0; max-width: 62ch; }
+.facts > div { display: grid; grid-template-columns: minmax(0, 1fr); gap: 2px; padding-block: 12px; border-top: 1px solid var(--line); }
+.facts > div:last-child { border-bottom: 1px solid var(--line); }
+.facts dt { font-size: .85rem; color: var(--muted); }
+.facts dd { margin: 0; font-weight: 500; }
+@media (min-width: 600px) { .facts > div { grid-template-columns: 150px minmax(0, 1fr); gap: 24px; } }
 .todo { color: var(--muted); font-style: italic; }
 .shots { display: grid; gap: var(--gap); grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .shots .shot { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-tile); overflow: hidden; container-type: size; }
@@ -182,12 +221,14 @@ a { color: inherit; }
 .m .sub { margin: 4px 0 14px; color: var(--muted); font-size: .92rem; }
 .m p { margin: 0; }
 .pts { margin: 0; padding-left: 1.1em; display: grid; gap: 8px; font-size: .97rem; }
-.m.stat { grid-column: span 6; display: flex; flex-direction: column; justify-content: flex-end; min-height: 150px; }
+.m.stat { grid-column: span 6; display: flex; flex-direction: column; justify-content: space-between; gap: 16px; min-height: 150px; }
 .stat .n { font-family: var(--font-display); font-weight: 400; font-size: clamp(2.5rem, 5vw, 3.5rem); letter-spacing: -0.04em; line-height: 1; }
 .stat .t { margin-top: 8px; color: var(--muted); font-size: .92rem; line-height: 1.35; }
 .m.mint { background: var(--mint); color: var(--deep); }
-.m.pink { background: var(--pink); color: var(--deep); }
-.m.mint .t, .m.pink .t { color: var(--deep); }
+.m.moss { background: var(--moss); color: var(--cream); }
+.m.dark { background: var(--deep); color: var(--cream); }
+.m.mint .t { color: var(--deep); }
+.m.moss .t, .m.dark .t { color: var(--cream); }
 .band { --band-pad: clamp(24px, 4vw, 56px); padding-block: var(--band-pad); border-bottom: 1px solid var(--line); margin-bottom: 32px; }
 .about-hero { position: relative; display: grid; gap: 28px; align-items: center; }
 .about-hero h1 { margin: 0; max-width: none; font-family: var(--font-display); font-weight: 400; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1; letter-spacing: -0.045em; text-wrap: balance; }
@@ -211,8 +252,9 @@ a { color: inherit; }
 .plain span { display: block; color: var(--muted); font-size: .88rem; }
 .btn { display: inline-block; margin-top: 16px; padding: 12px 22px; border-radius: var(--radius-ui); background: var(--olive); color: var(--olive-on); text-decoration: none; font-weight: 500; }
 .btn:hover { filter: brightness(1.08); }
+.btn-pink { background: var(--pink); color: var(--deep); border: 2px solid var(--deep); padding: 10px 22px; }
+.btn-pink:hover { filter: none; background: var(--mint); }
 @media (min-width: 900px) {
-  .m.stat { grid-column: span 3; }
   .m.c3 { grid-column: span 3; } .m.c4 { grid-column: span 4; } .m.c5 { grid-column: span 5; }
   .m.c7 { grid-column: span 7; } .m.c8 { grid-column: span 8; }
 }
@@ -259,6 +301,7 @@ a { color: inherit; }
   <div class="wrap">
     <div>
       <h2>Let's talk about your next project.</h2>
+      <a class="btn btn-pink" href="mailto:adrianjimenezn@gmail.com">Email me</a>
     </div>
     <div>
       <p class="lbl">Email</p>
@@ -280,59 +323,161 @@ a { color: inherit; }
 <script>
 (function () {
   var PROJECTS = [
-    { slug: 'hr-tech-booth', title: 'HR Tech Booth', cat: 'Experience design', mark: 'HR Tech', size: 's-a', seed: 0, order: ['pattern','blocks','mark'],
-      role: 'Owned design and delivery', team: 'Strategic marketers, event planners, account managers, creative team, production vendor', ctx: 'Deloitte Human Capital',
-      lede: 'Designed and delivered the booth for one of the practice’s most important events, from concept to print-ready assets.',
-      roleText: 'Owned the design and delivery from concept to print-ready assets. Coordinated through multiple sprints with strategic marketers, event planners, account managers and the creative team, then handed off to the production vendor for printing and installation.',
-      outcomeText: 'The booth was very well received.' },
-    { slug: 'delisoy', title: 'Delisoy', cat: 'Tresunotres · Brand redesign + packaging', mark: 'Delisoy', size: 's-b', seed: 1, order: ['blocks','mark','pattern'],
-      role: 'Brand and packaging design', team: 'Agency creative directors and account executive (Ecuador, Nicaragua) with the Tresunotres team in Costa Rica', ctx: 'Tresunotres, regional project',
-      lede: 'A regional brand redesign, including packaging, built across three countries by the Tresunotres team in Costa Rica with an agency’s creative directors and account executive from Ecuador and Nicaragua.' },
-    { slug: 'driv-refreshes', title: 'DRiV brand refreshes', cat: 'Brand identity', mark: 'DRiV', size: 's-c', seed: 2, order: ['mark','pattern','blocks'],
-      role: 'Lead designer, co-lead of the refresh', team: 'Creative Director, 7 to 9 designers and animators', ctx: 'DRiV (13 vehicle parts brands), Wondersauce',
-      lede: 'Co-led the long-awaited refresh of 7 of DRiV’s 13 brands.',
-      roleText: 'Led a team of 7 to 9 designers and animators, organizing workloads and reviewing output. Co-led the refresh of 7 of the 13 brands with the Creative Director, conceptualizing the redesigns and directing the team’s proposals. Ran daily stand-ups with the leadership team to align expectations and delivery timelines.',
-      outcomeText: 'Most refreshes were approved by the client, several on the first round, and were well received.' },
-    { slug: 'human-capital', title: 'Human Capital identity', cat: 'Brand identity', mark: 'Human Capital', size: 's-c', seed: 0, order: ['blocks','pattern','mark'],
-      role: 'Visual identity, end to end', team: 'Human Capital manager, Deloitte creative team', ctx: 'Deloitte Human Capital',
-      lede: 'Developed the practice’s visual identity from first proposal to rollout.',
-      roleText: 'Partnered with the Human Capital manager on every stage: conceptual proposal, moodboards, concept approval, graphic development, brand guidelines and rollout. Applied the approved identity across d.com, social cards and event visuals, keeping the brand consistent across segments.',
-      approachText: 'Used AI tools, including Adobe Firefly, Claude, Marketing Workbench and Sidekick, to produce a large share of the imagery, refining prompts and combining multiple models. The images made it into final materials and deliverables.' },
-    { slug: 'driv-web', title: 'DRiV websites', cat: 'Web design', mark: 'DRiV web', size: 's-c', seed: 1, order: ['pattern','mark','blocks'],
-      role: 'Web design', team: 'Creative Director, Wondersauce team', ctx: 'DRiV, Wondersauce',
-      lede: 'Brand websites and internal web pages for DRiV.',
-      roleText: 'Partnered with the Creative Director on the design of DRiV’s internal web pages while keeping hands-on design ownership.' },
-    { slug: 'exploring', title: 'Exploring', cat: 'Fokus · Original series', mark: 'Series', size: 's-d', seed: 0, order: ['mark','pattern','blocks'],
-      role: 'Co-creator, with my Fokus partners', team: 'Fokus partners', ctx: 'Fokus, with ICT and PROCOMER',
-      lede: 'A series about Costa Rica as a tourist destination, created to build our reel from zero and sold to the national tourism board.',
-      challengeText: 'We were starting a production company with no clients and no demo reel.',
-      approachText: 'We created our own project: videos about Costa Rica as a tourist destination. We shot a pilot and sold it to the Costa Rican Tourism Board (ICT), which together with PROCOMER, the country’s foreign trade promotion agency, manages the Essential Costa Rica country brand. Two seasons followed, 10 episodes in total, on tourist regions, traditions and culture, and gastronomy.',
-      roleText: 'Developed with my Fokus partners, from the pilot to the full series.',
-      outcomeText: 'The series became our reel. It brought in our first clients, and the studio grew into productions of every kind.' },
-    { slug: 'agency-identity', title: 'Agency work: identity', cat: 'Selected projects', mark: 'Identity', size: 's-d', seed: 2, order: ['mark','blocks','pattern'],
-      role: 'Designer', team: 'Agency teams', ctx: 'FCB San José, House Rapp, McCann, Halsband, Fokus',
-      lede: 'A selection of brand identity projects from my agency years.' },
-    { slug: 'agency-packaging', title: 'Agency work: packaging', cat: 'Selected projects', mark: 'Pack', size: 's-d', seed: 0, order: ['pattern','mark','blocks'],
-      role: 'Designer', team: 'Agency teams', ctx: 'FCB San José, House Rapp, McCann, Halsband, Fokus',
-      lede: 'A selection of packaging projects from my agency years.' },
-    { slug: 'agency-digital', title: 'Agency work: digital', cat: 'Selected projects', mark: 'Digital', size: 's-d', seed: 1, order: ['blocks','pattern','mark'],
-      role: 'Designer', team: 'Agency teams', ctx: 'FCB San José, House Rapp, McCann, Halsband, Fokus',
-      lede: 'A selection of digital projects from my agency years.' },
-    { slug: 'tres-identities', title: 'Brand identities', cat: 'Tresunotres · Identity', mark: 'Brands', size: 's-d', seed: 2, order: ['pattern','blocks','mark'],
-      role: 'Brand strategy and design', team: 'Tresunotres, a two-person studio', ctx: 'Tresunotres',
-      lede: 'Brand identities across many categories, from concept and client presentation to final delivery.' },
-    { slug: 'tres-brand-books', title: 'Brand books', cat: 'Tresunotres · Guidelines', mark: 'Books', size: 's-d', seed: 1, order: ['blocks','mark','pattern'],
-      role: 'Brand strategy and design', team: 'Tresunotres, a two-person studio', ctx: 'Tresunotres',
-      lede: 'Brand books with photography guidelines for food and lifestyle brands.',
-      approachText: 'Brand books that include photography guidelines.' }
-  ];
+  {
+    "slug": "human-capital",
+    "title": "Human Capital Visual Identity",
+    "cat": "Deloitte · Brand identity",
+    "mark": "Amplified Focus",
+    "size": "s-a",
+    "seed": 0,
+    "order": [
+      "blocks",
+      "pattern",
+      "mark"
+    ],
+    "tile": "Amplified Focus: a human-centered visual identity for Deloitte’s Human Capital practice, with a style guide anyone can build from.",
+    "role": "Senior Graphic Designer",
+    "org": "Deloitte Consulting",
+    "year": "2026",
+    "roleText": "Concept development, visual identity, and brand guidelines, working with my manager and as part of a creative team spanning three countries.",
+    "concept": "We presented three concepts, each with its own moodboard, so the portfolio leader could choose. Amplified Focus was selected. As AI accelerates our world, it accelerates human impact. The identity puts the person in sharp focus, in control, while the blurred world around them shows the same person in movement: a metaphor for how AI amplifies capability and speed.",
+    "challenge": "Bring Human Capital’s Humans x Machines message, “Scale your human edge,” to life in a distinct identity that stayed fully aligned with Deloitte’s brand, as an extension of the core system and not a replacement. There was no budget or time for a photo shoot.",
+    "approach": "I worked with my manager on the three proposals. Once Amplified Focus was chosen, the design team and I developed all the materials and the style guide.\n\nThe core element is a motif of concentric circles behind the subject, expressing impact that radiates outward. The visual system has four image types: primary, industry-specific, secondary, and visual texture. Together they give teams enough material to work with while keeping everything consistent across the account. The guidelines also define the photography style to look for, so anyone creating materials has a clear guide.\n\nFor the imagery, we started from a real photograph of the main subject and used AI tools (Adobe Firefly, Claude, Marketing Workbench, Sidekick) to generate iterations. Refining prompts and combining several models took real effort, and the results made it into the final materials.",
+    "result": "The identity rolled out across d.com, social cards, and events, including the HR Tech booth."
+  },
+  {
+    "slug": "hr-tech-booth",
+    "title": "HR Tech Booth",
+    "cat": "Deloitte · Experience design",
+    "mark": "HR Tech",
+    "size": "s-b",
+    "seed": 0,
+    "order": [
+      "pattern",
+      "blocks",
+      "mark"
+    ],
+    "tile": "A 1,500 sq ft booth that unveiled Amplified Focus to the visitors.",
+    "role": "Senior Graphic Designer",
+    "org": "Deloitte Consulting",
+    "year": "2026",
+    "roleText": "Led the booth’s design from concept to print-ready assets, aligning strategic marketers, event planners, account managers, and creatives.",
+    "challenge": "HR Tech is one of the area’s most important events. The booth had to unveil the new Human Capital identity at large scale, and its size made the design a puzzle of its own.",
+    "approach": "I took the booth from concept to print-ready assets. Across several sprints, I held constant check-ins with strategic marketers, event planners, account managers, and the creative team. Design was done in Costa Rica, and the print-ready assets went to a US production vendor through our event planner.\n\nThe space included a podcast room, demo station, speaker stage, and personalized merch station.",
+    "result": "7,000 visitors, with three d.com page launches in parallel. The booth stood out for a fresh, modern look that still felt clearly Deloitte.",
+    "numbers": [["1,500 sq ft", "booth size"], ["7,000", "visitors"], ["3", "d.com page launches in parallel"], ["4", "experience areas"]],
+    "insideLabel": "Inside the booth",
+    "inside": ["Podcast room", "Demo station", "Speaker stage", "Personalized merch station"],
+    "details": [["Event", "HR Tech"], ["Year", "2026"], ["Unveiled", "Human Capital’s new visual identity (Amplified Focus)"], ["Scope", "Concept to print-ready assets"], ["Collaborators", "Strategic marketers, event planners, account managers, and the creative team, across several sprints"], ["Production", "US vendor, through our event planner"]]
+  },
+  {
+    "slug": "puralma",
+    "title": "Puralma",
+    "cat": "Tresunotres · Food & Restaurants",
+    "mark": "Puralma",
+    "size": "s-f",
+    "seed": 1,
+    "order": [
+      "blocks",
+      "mark",
+      "pattern"
+    ],
+    "tile": "A rebrand that helped a Barrio Escalante vegan kitchen stand out, and win over diners who aren’t vegan.",
+    "role": "Co-Founder",
+    "org": "Tresunotres",
+    "year": "2025",
+    "industry": "Food & Restaurants",
+    "roleText": "Strategy, design, quoting, and art direction, working hand in hand with my partner at every stage, each giving the other feedback.",
+    "challenge": "Puralma started as a small window selling desserts and kept growing. When it moved to a much larger space and expanded its menu, it needed a renewed identity to compete in Barrio Escalante, Costa Rica’s main dining district. Its main customers are not vegan, so the brand also had to convince people who eat meat to choose Puralma over restaurants with animal-based options.",
+    "approach": "We built the identity around the conviction that earned the kitchen its reputation: “Revolutionary but kind.” It carries through the flower mark, the wordmark, and the tagline, and across packaging, signage, posters, merch, and events, so the brand makes itself known to people outside its core audience.",
+    "result": "A brand that reads as confidently as the food tastes, ready for a bigger stage without losing the kindness that built it.",
+    "hero": {"src": "images/puralma/03-posters.jpg", "alt": "Two posters on a periwinkle background: “100% Plant Based” on dark green, and “Kind but revolutionary” on navy beside a large lime flower shape."},
+    "tileFrames": ["images/puralma/tile-03-posters.jpg", "images/puralma/tile-05-tote.jpg", "images/puralma/tile-10-run-club.jpg"],
+    "gallery": [{"src": "images/puralma/14-before-after.jpg", "alt": "Before and after: the old Puralma logo with a lotus drawing beside the new green wordmark and flower mark, over a pattern of leaf shapes.", "span": 12, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/01-badge.jpg", "alt": "A round Puralma badge in lime green on dark green, with the year 2023 and the words brunch, cake, coffee, fun around a 3D flower-shaped mark.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/12-with-love.jpg", "alt": "A lavender flower shape on deep purple with the words “With love, from the tropics”, “Plant-based food” and “Since 2023”.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/04-cups.jpg", "alt": "Stacked and tipped white paper cups printed with the green Puralma wordmark and flower mark, on a wooden table against black.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/07-label.jpg", "alt": "Green wrapping paper patterned with flowers and the letter P, under a navy label with the lime Puralma logo and “Kind never tasted this good”.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/05-tote.jpg", "alt": "A person carrying a canvas tote printed with “Kind but revolutionary”, a short manifesto and the Puralma logo.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/08-apron.jpg", "alt": "A dark green apron printed with a pink flower mark and pink and lavender leaf shapes, hanging against a periwinkle backdrop.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/09-cube-sign.jpg", "alt": "A white cube sign on a concrete wall showing the green Puralma wordmark and flower mark.", "span": 4, "mspan": 12, "ratio": "4 / 5"}, {"src": "images/puralma/10-run-club.jpg", "alt": "A navy Run Club poster, “6 abril, 8 am”, with a runner photographed from below inside a flower-shaped window, beside a watermelon drink on a pink background.", "span": 8, "mspan": 12, "ratio": "16 / 9", "fill": true}]
+  },
+  {
+    "slug": "susana-mendez",
+    "title": "Susana Méndez",
+    "cat": "Tresunotres · Law",
+    "mark": "SM",
+    "size": "s-f",
+    "seed": 2,
+    "order": [
+      "mark",
+      "pattern",
+      "blocks"
+    ],
+    "tile": "A law brand anchored by a mark that doubles as the lawyer’s own signature.",
+    "role": "Co-Founder",
+    "org": "Tresunotres",
+    "year": "2025",
+    "industry": "Law",
+    "roleText": "Strategy, design, quoting, and art direction, working hand in hand with my partner at every stage, each giving the other feedback.",
+    "challenge": "An independent lawyer and notary needed a brand as credible as any law office in an industry still mostly run by men, and one that stood out in a field used to looking one way.",
+    "approach": "Instead of a look, we built an idea: her initials and the scales of justice folded into a single mark that works as her signature. It was applied across business cards, stationery, signage, and a door hanger.",
+    "result": "A brand as personal as it is professional, standing out for the same reason she does.",
+    "hero": {"src": "images/susana/01-logo-dark.jpg", "alt": "The Susana Méndez mark and name, with “Abogada & Notaria”, in pink over a dark black-and-white architectural photo."},
+    "tileFrames": ["images/susana/tile-01-logo-dark.jpg", "images/susana/tile-06-business-cards.jpg", "images/susana/tile-05-door-hanger.jpg"],
+    "gallery": [{"src": "images/susana/02-construction.jpg", "alt": "The Susana Méndez mark drawn on a construction grid of circles and guidelines, in pink on a light background.", "span": 4, "mspan": 12, "ratio": "1 / 1"}, {"src": "images/susana/04-sign.jpg", "alt": "A wall-mounted square light box in pink with the navy mark, on a gray tiled facade.", "span": 4, "mspan": 6, "ratio": "1 / 1", "pos": "50% 55%"}, {"src": "images/susana/07-letterhead.jpg", "alt": "Sage green letterhead with the mark, a large tone-on-tone watermark of it and the name at the bottom, on a navy surface.", "span": 4, "mspan": 6, "ratio": "1 / 1", "pos": "50% 62%"}, {"src": "images/susana/06-business-cards.jpg", "alt": "Stacks of business cards: navy cards with the pink mark, and pink cards with the name, Abogada & Notaria, and contact details.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/susana/05-door-hanger.jpg", "alt": "A pink door hanger reading “Reunión en proceso. Favor no interrumpir”, with the mark, on a copper door handle against a sage green door.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/susana/03-folder.jpg", "alt": "A navy folder with the pink mark, holding sage stationery that reads Susana Méndez, Abogada & Notaria, on a pink surface.", "span": 8, "mspan": 12, "ratio": "16 / 9", "fill": true}, {"src": "images/susana/08-phone.jpg", "alt": "A phone on a desk showing the white mark on a navy-to-rose gradient screen.", "span": 4, "mspan": 12, "ratio": "1 / 1"}]
+  },
+  {
+    "slug": "co-co-brew",
+    "title": "Co.Co Brew",
+    "cat": "Tresunotres · Startups",
+    "mark": "Co.Co",
+    "size": "s-f",
+    "seed": 0,
+    "order": [
+      "pattern",
+      "mark",
+      "blocks"
+    ],
+    "tile": "A flexible brand system for a coworking, coffee, and craft beer concept built to grow.",
+    "role": "Co-Founder",
+    "org": "Tresunotres",
+    "year": "2023",
+    "industry": "Startups",
+    "roleText": "Strategy, design, quoting, and art direction, working hand in hand with my partner at every stage, each giving the other feedback.",
+    "challenge": "Seven partners wanted one roof for craft beer, specialty coffee, and the connections that come from sharing a room with the right people. Their brand had to hold all of it and keep growing.",
+    "approach": "We built the concept around a single word, Brew, working four ways: coffee, beer, ideas, and connections. Co.Co became a holding name, flexible enough for Co.Co [brew], Co.Co [workspaces], and Co.Co [tech], so the identity could grow one piece at a time.",
+    "result": "The space never opened, but the system remains one of the most complete identities in our portfolio.",
+    "hero": {"src": "images/coco/01-cans.jpg", "alt": "A pile of neon green Co.Co brew cans with cream labels reading “in-house craft beer, lager, 6,0%”, wrapped in a black and white pattern."},
+    "tileFrames": ["images/coco/tile-01-cans.jpg", "images/coco/tile-04-coffee-cup.jpg", "images/coco/tile-05-social.jpg"],
+    "gallery": [{"src": "images/coco/02-logo-system.jpg", "alt": "Three Co.Co logo lockups in black on pale yellow, each with a different symbol between the two Co’s, labeled brew, tech and workspaces.", "span": 7, "mspan": 12, "ratio": "1 / 1", "fill": true}, {"src": "images/coco/03-business-cards.jpg", "alt": "Two Co.Co [workspaces] business cards, one lime green with the logo and one white with a name and contact details, on a black metal rack.", "span": 5, "mspan": 12, "ratio": "4 / 5"}, {"src": "images/coco/04-coffee-cup.jpg", "alt": "A to-go coffee cup with a black lid and a lime green and cream sleeve printed with Co.Co [brew] and “specialty coffee”.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/coco/05-social.jpg", "alt": "Three phone screens with social posts: workspaces in lime green, specialty coffee on dark, and a hand holding a beer under the taps.", "span": 6, "mspan": 12, "ratio": "16 / 9"}]
+  },
+  {
+    "slug": "base-programming",
+    "title": "Base Programming",
+    "cat": "Tresunotres · Fitness",
+    "mark": "Base",
+    "size": "s-f",
+    "seed": 1,
+    "order": [
+      "blocks",
+      "pattern",
+      "mark"
+    ],
+    "tile": "A training brand identity built to stand out in a crowded market, on an unfinished letterform that adapts to whatever it’s placed on.",
+    "role": "Co-Founder",
+    "org": "Tresunotres",
+    "year": "2024",
+    "industry": "Fitness",
+    "roleText": "Strategy, design, quoting, and art direction, working hand in hand with my partner at every stage, each giving the other feedback.",
+    "challenge": "The market for gyms, training centers, coaches, and studios is crowded and fiercely contested. Beyond the skill of its coaches, Base needed something that set it apart from all that competition.",
+    "approach": "The idea is “Seek discomfort”: progress happens at the edge of what feels finished. We built a geometric typeface from scratch for the logo, each letter missing its last piece on purpose. The wordmark also stretches to fit whatever it’s placed on, the way the athletes adapt to whatever the day asks of them.",
+    "result": "An identity that expresses the brand’s philosophy in its own construction, and flexes across bottles, photography, and video.",
+    "hero": {"src": "images/base/01-sign.jpg", "alt": "Illuminated pink BASE sign mounted on a dark tiled wall."},
+    "tileFrames": ["images/base/tile-01-sign.jpg", "images/base/tile-07-seek-discomfort.jpg", "images/base/tile-10-running-club.jpg"],
+    "gallery": [{"src": "images/base/02-logo-grid.jpg", "alt": "The BASE wordmark in white on black, shown with its construction grid.", "span": 12, "mspan": 12, "ratio": "21 / 9"}, {"type": "video", "src": "images/base/logo-motion.mp4", "poster": "images/base/logo-motion-poster.jpg", "alt": "Looping animation of the BASE mark and wordmark transforming and stretching.", "span": 4, "mspan": 12, "ratio": "1 / 1"}, {"src": "images/base/05-training.jpg", "alt": "BASE mark and wordmark over a black and white photo of an athlete lifting a barbell.", "span": 4, "mspan": 6, "ratio": "1 / 1"}, {"src": "images/base/06-bottle.jpg", "alt": "A hand holding a black BASE water bottle with a pink letterform on it.", "span": 4, "mspan": 6, "ratio": "1 / 1", "pos": "50% 45%"}, {"src": "images/base/07-seek-discomfort.jpg", "alt": "A woman on an air bike in a gym, with “Seek discomfort” set in large type.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/10-running-club.jpg", "alt": "BASE Running Club poster: a woman in a yellow top mid-run beside bold white type.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/03-bracket.jpg", "alt": "A pink bracket shape framing a cropped photo and the BASE wordmark on a dark slide.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/04-social.jpg", "alt": "Three vertical social story designs: two photos with the BASE logo and a pink save-the-date card.", "span": 6, "mspan": 12, "ratio": "16 / 9"}]
+  }
+];
 
   var BLOCK_LAYOUTS = [
-    ['1.4fr 1fr / 1fr 1fr', ['var(--deep)','var(--pink)','var(--mint)','var(--paper)']],
-    ['1fr 1fr / 1fr 1.5fr', ['var(--mint)','var(--deep)','var(--pink)','var(--paper)']],
-    ['1fr 1fr / 1.6fr 1fr', ['var(--pink)','var(--mint)','var(--paper)','var(--deep)']]
+    ['1.4fr 1fr / 1fr 1fr', ['var(--deep)','var(--moss)','var(--mint)','var(--paper)']],
+    ['1fr 1fr / 1fr 1.5fr', ['var(--mint)','var(--deep)','var(--moss)','var(--paper)']],
+    ['1fr 1fr / 1.6fr 1fr', ['var(--moss)','var(--mint)','var(--paper)','var(--deep)']]
   ];
-  var ART_BG = ['var(--mint)', 'var(--pink)', 'var(--paper)'];
+  var ART_BG = ['var(--mint)', 'var(--cream)', 'var(--paper)'];
   var PATTERNS = [
     'repeating-linear-gradient(135deg, var(--deep) 0 14px, transparent 14px 34px)',
     'repeating-radial-gradient(circle at 70% 60%, var(--deep) 0 10px, transparent 10px 30px)',
@@ -354,38 +499,77 @@ a { color: inherit; }
   }
 
   function tileHTML(p) {
-    var frames = p.order.map(function (k) { return frame(k, p); }).join('');
+    var frames = p.tileFrames
+      ? p.tileFrames.map(function (src) { return '<div class="frame f-img"><img src="' + src + '" alt="" loading="lazy" decoding="async"></div>'; }).join('')
+      : p.order.map(function (k) { return frame(k, p); }).join('');
     return '<a class="tile ' + p.size + '" href="#work-' + p.slug + '" data-nav>' +
       '<div class="art" aria-hidden="true">' + frames + '</div>' +
-      '<div class="cap"><h2>' + p.title + '</h2><span>' + p.cat + '</span></div></a>';
+      '<div class="cap"><div class="cap-top"><h2>' + p.title + '</h2><span>' + p.cat + '</span></div><p>' + p.tile + '</p></div></a>';
   }
 
   function homeHTML() {
-    return '<div class="wrap"><section class="hero"><p class="role-line">Lead Visual Designer, based in Costa Rica</p><h1>Brand strategy you can see.</h1>' +
+    return '<div class="wrap"><section class="hero"><p class="role-line">Lead Visual Designer, based in Costa Rica</p><h1>Design that carries the message.</h1>' +
       '<p>15+ years across agencies, studios I helped build and Deloitte, leading creative work from the first conversation to the final file.</p></section>' +
       '<section class="grid" aria-label="Selected work">' + PROJECTS.map(tileHTML).join('') + '</section></div>';
   }
 
-  function sec(label, text, prompt) {
-    return '<section><h2>' + label + '</h2><p' + (text ? '' : ' class="todo"') + '>' + (text || prompt) + '</p></section>';
+  function sec(label, text) {
+    if (!text) return '';
+    return '<section><h2>' + label + '</h2><div class="prose">' + text.split('\n\n').map(function (t) { return '<p>' + t + '</p>'; }).join('') + '</div></section>';
   }
 
+  function galleryHTML(items) {
+    return '<div class="gal">' + items.map(function (it) {
+      var st = ' style="--span:' + it.span + ';--mspan:' + (it.mspan || 12) + ';--ratio:' + it.ratio + '"';
+      var inner;
+      if (it.type === 'video') {
+        inner = '<video muted loop playsinline preload="metadata" poster="' + it.poster + '" aria-label="' + it.alt + '" data-loop><source src="' + it.src + '" type="video/mp4"></video>' +
+          '<button type="button" class="vid-btn" aria-label="Pause animation">Pause</button>';
+      } else {
+        inner = '<img src="' + it.src + '" alt="' + it.alt + '" loading="lazy" decoding="async"' + (it.pos ? ' style="object-position:' + it.pos + '"' : '') + '>';
+      }
+      return '<figure' + (it.fill ? ' class="fill"' : '') + st + '>' + inner + '</figure>';
+    }).join('') + '</div>';
+  }
+  function block(label, inner) { return '<section><h2>' + label + '</h2><div>' + inner + '</div></section>'; }
+  function extrasHTML(p) {
+    var out = '';
+    if (p.numbers) {
+      var cls = ['moss', 'mint', 'dark', ''];
+      out += block('By the numbers', '<div class="nums">' + p.numbers.map(function (n, k) {
+        return '<div class="m stat ' + cls[k % 4] + '"><div class="n">' + n[0] + '</div><div class="t">' + n[1] + '</div></div>';
+      }).join('') + '</div>');
+    }
+    if (p.inside) {
+      out += block(p.insideLabel || 'Inside', '<ul class="chips">' + p.inside.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>');
+    }
+    if (p.details) {
+      out += block('Project details', '<dl class="facts">' + p.details.map(function (d) {
+        return '<div><dt>' + d[0] + '</dt><dd>' + d[1] + '</dd></div>';
+      }).join('') + '</dl>');
+    }
+    return out;
+  }
   function projectHTML(p, i) {
     var next = PROJECTS[(i + 1) % PROJECTS.length];
-    var heroArt = '<div class="hero-art">' + frame(p.order[0], p, 0) + '</div>';
-    var shots = '<div class="shots"><div class="shot wide">' + frame(p.order[1], p, 1) + '</div>' +
+    var heroArt = p.hero
+      ? '<div class="hero-art"><img src="' + p.hero.src + '" alt="' + p.hero.alt + '" fetchpriority="high" decoding="async"></div>'
+      : '<div class="hero-art">' + frame(p.order[0], p, 0) + '</div>';
+    var shots = p.gallery ? galleryHTML(p.gallery) : '<div class="shots"><div class="shot wide">' + frame(p.order[1], p, 1) + '</div>' +
       '<div class="shot">' + frame(p.order[2], p, 2) + '</div><div class="shot">' + frame(p.order[0], p, 2) + '</div></div>';
     return '<div class="wrap page"><a class="back" href="#" data-nav><svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>All work</a>' +
-      '<h1 id="pageTitle" tabindex="-1">' + p.title + '</h1><p class="lede">' + p.lede + '</p>' +
-      '<dl class="meta"><div><dt>Role</dt><dd>' + p.role + '</dd></div><div><dt>Team</dt><dd>' + p.team + '</dd></div><div><dt>Context</dt><dd>' + p.ctx + '</dd></div></dl>' +
+      '<h1 id="pageTitle" tabindex="-1">' + p.title + '</h1><p class="lede">' + p.tile + '</p>' +
+      '<dl class="meta"><div><dt>Role</dt><dd>' + p.role + '</dd></div><div><dt>Company</dt><dd>' + p.org + '</dd></div><div><dt>Year</dt><dd>' + p.year + '</dd></div>' +
+      (p.industry ? '<div><dt>Industry</dt><dd>' + p.industry + '</dd></div>' : '') + '</dl>' +
       heroArt +
       '<div class="cs">' +
-      sec('Challenge', p.challengeText, 'What the client needed and what was at stake, in two or three sentences.') +
-      sec('Approach', p.approachText, 'The strategy and the key design decisions, and why you made them.') +
-      sec('My role', p.roleText, 'What you led, who you coordinated, and how the work moved from brief to delivery.') +
-      sec('Outcome', p.outcomeText, 'What changed because of the work: results, numbers, feedback.') + '</div>' +
+      sec('My role', p.roleText) +
+      sec('The concept', p.concept) +
+      sec('The challenge', p.challenge) +
+      sec('The approach', p.approach) +
+      sec('The result', p.result) + extrasHTML(p) + '</div>' +
       shots +
-      '<p class="note">Draft layout. Images and copy shown here are placeholders and will be replaced with the real project material.</p>' +
+      (p.gallery ? '' : '<p class="note">Project images are coming soon.</p>') +
       '<a class="next" href="#work-' + next.slug + '" data-nav><span><small>Next project</small><strong>' + next.title + '</strong></span>' +
       '<svg width="22" height="22" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="m6 3 5 5-5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a></div>';
   }
@@ -393,69 +577,81 @@ a { color: inherit; }
   function aboutHTML() {
     function pts(a) { return '<ul class="pts">' + a.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
     function chips(a) { return '<ul class="chips">' + a.map(function (x) { return '<li>' + x + '</li>'; }).join('') + '</ul>'; }
+    function stat(cls, n, t) { return '<li class="m stat ' + cls + '"><div class="n">' + n + '</div><div class="t">' + t + '</div></li>'; }
+    function marqueeHTML() {
+      var items = stat('moss', '15+', 'years across agencies, studios co-founded and Deloitte') +
+        stat('mint', '7 to 9', 'designers and animators led on DRiV, from entry level to team leads') +
+        stat('dark', '2', 'Deloitte recognitions for Outstanding Value to Clients: Applause and Spot') +
+        stat('mint', '7,000', 'visitors at the HR Tech booth, 1,500 sq ft') +
+        stat('dark', '20+', 'people co-directed on production crews, with two partners') +
+        stat('', '2', 'industry awards: Silver Effie 2013 (McCann), Bronze Volcán 2014 (House Rapp)');
+      return '<section class="marq" aria-label="Highlights">' +
+        '<div class="marq-viewport" id="marqViewport"><div class="marq-track">' +
+        '<ul class="marq-group">' + items + '</ul>' +
+        '<ul class="marq-group" aria-hidden="true">' + items + '</ul></div></div>' +
+        '<button type="button" class="marq-btn" id="marqBtn" aria-pressed="false">Pause</button></section>';
+    }
     return '<div class="band"><div class="wrap"><div class="about-hero"><div class="ah-text"><p class="role-line">Lead Visual Designer</p><h1 id="pageTitle" tabindex="-1">Adrián Jiménez</h1>' +
-      '<p class="lede">Brand-focused creative leader with 15+ years across advertising agencies, studios I helped build, and Deloitte. I guide branding projects from concept through client presentation and rollout.</p>' +
-      '<a class="btn" href="Adrian-Jimenez-CV.pdf">Download CV (PDF)</a></div>' +
+      '<p class="lede">Creative leader with 15+ years across agencies, two studios co-founded, and Deloitte. I turn business priorities into clear creative direction and visual design, conceptualizing with managers and strategists and leading teams and stakeholders to deliver high-visibility work for US clients. I develop other designers through mentoring and communities that raise the quality of the work. Bilingual in English and Spanish.</p>' +
+      '<a class="btn btn-pink" href="Adrian-Jimenez-CV.pdf">Download resume (PDF)</a></div>' +
       '<figure><img src="images/adrian.jpg" alt="Portrait of Adrián Jiménez" width="1184" height="1480"></figure></div></div></div>' +
       '<div class="wrap page"><div class="mosaic">' +
-      '<div class="m stat mint"><div class="n">15+</div><div class="t">years across agencies, studios I helped build and Deloitte</div></div>' +
-      '<div class="m stat"><div class="n">9</div><div class="t">designers and animators led on DRiV, from entry level to team leads</div></div>' +
-      '<div class="m stat pink"><div class="n">7</div><div class="t">DRiV brands refreshed, co-led with the Creative Director</div></div>' +
-      '<div class="m stat"><div class="n">20+</div><div class="t">people co-directed on production crews, with my two partners</div></div>' +
+      marqueeHTML() +
 
       '<div class="m c7"><h2>Deloitte</h2><p class="sub">Senior Graphic Designer, Consulting · Jun 2025 to present</p>' + pts([
-        'Developed the Human Capital visual identity end to end with the practice’s manager: concept, moodboards, brand guidelines and rollout across d.com, social and events.',
-        'Owned the design and delivery of the HR Tech booth, from concept to print-ready assets, across multiple sprints.',
-        'Produced much of the Human Capital imagery with AI tools, refining prompts and combining models.',
-        'Guided UI designers on image selection and look and feel for internal d.com pages.'
+        'Lead designer on my teams, trusted with complex, high-visibility, time-sensitive projects. I partner with managers from the earliest stage to shape the concepts behind work that has proven successful for the account.',
+        'Co-developed Human Capital’s visual identity end to end with its manager, from concept to brand guidelines and rollout across d.com, social and events, as part of a creative team spanning three countries. With no budget or time for a photo shoot, I built an AI-assisted image workflow (Adobe Firefly, Claude, Marketing Workbench, Sidekick) that iterated from real photography and produced much of its imagery.',
+        'Owned the HR Tech booth, one of the area’s most important events: 1,500 sq ft with a podcast room, demo station, speaker stage and personalized merch station, 7,000 visitors, and 3 d.com page launches in parallel. Took it from concept to print-ready assets, aligning strategic marketers, event planners, account managers and creatives, and delivering assets to a US production vendor.',
+        'Rewards &amp; Recognitions: Applause Award and Spot Award for Outstanding Value to Clients, from Consulting’s Creative Director and the US CMO, for Human Capital and Applied AI work, plus multiple Shout Outs. Snapshot feedback from managers, account managers and strategic marketers averages at the top of the scale.'
       ]) + '</div>' +
-      '<div class="m c5"><h2>Wondersauce</h2><p class="sub">Lead Designer · Aug 2024 to Jun 2025<br>Senior Production Designer · 2021 to Aug 2024</p>' + pts([
-        'Led 7 to 9 designers and animators on DRiV, a group of 13 vehicle parts brands, from entry-level designers to leads from other teams.',
-        'Co-led the refresh of 7 brands with the Creative Director. Most were approved, several on the first round.',
-        'Worked on the Chandon account and held interim art direction for three months before promotion to Lead.'
+      '<div class="m c5"><h2>Wondersauce</h2><p class="sub">Lead Designer · Aug 2024 to Jun 2025<br>Senior Production Designer · Jan 2021 to Jul 2024</p>' + pts([
+        'Led creative delivery for DRiV, a US client with 13 vehicle parts brands, directing 7 to 9 designers and animators across social, web, Amazon and editorial content.',
+        'Co-led with the Creative Director the long-overdue refresh of 7 of the brands, conceptualizing the redesigns and directing the team’s proposals.',
+        'Aligned expectations and timelines in daily stand-ups with 3 project managers and the Creative Director, and partnered with the Creative Director on DRiV’s internal web pages and the overall look and feel of the brands.',
+        'Trusted with creative latitude on the premium Chandon account, designing high-end email, social and web.'
       ]) + '</div>' +
 
       '<div class="m c4"><h2>Tresunotres</h2><p class="sub">Co-founder, Brand Strategy and Design · 2021 to 2025</p>' + pts([
-        'Two-person branding studio with 20+ projects delivered.',
-        'Strategy first: every branding project rests on broad strategic work before the design phase.',
-        'Worked with all kinds of brands, from local entrepreneurs to larger regional companies.',
-        'Brand identities and brand books with photography guidelines, from concept to client presentation and delivery.'
+        'Co-ran a two-person branding studio with 20+ projects delivered, from quoting to final delivery of materials, leading concept development and client presentations on strategy-first branding.',
+        'Worked with brands from small entrepreneurs to regional companies in redesign processes, across many categories.',
+        'Delivered the full branding process on every project, from strategy and concept to brand identity, guidelines and brand books.'
       ]) + '</div>' +
       '<div class="m c4"><h2>Fokus</h2><p class="sub">Co-founder and Chief Creative Officer · 2016 to 2021</p>' + pts([
-        'Grew an audiovisual production company into a creative studio.',
-        'Created Exploring, a series on Costa Rica sold to the national tourism board. It became our reel and brought in our first clients.',
-        'Directed crews of up to 20 on commercials and led all branding projects.',
-        'Served as art director on commercials, music videos and branded content.'
+        'Co-founded the studio and evolved it from audiovisual production into branding and content, managing budgets, logistics and locations as a founding partner.',
+        'Co-created Exploring, a travel series on Costa Rica, to build the studio’s reel from zero. The pilot sold to the Costa Rican Tourism Board (ICT), which manages the Essential Costa Rica country brand, and two seasons followed, bringing the studio’s first clients.',
+        'Led all branding projects, directing junior and mid-level designers from concept to delivery, and integrated brand strategy into audiovisual production.',
+        'Co-directed production crews of up to 20 people on commercials. As art director, led the creative process and created the visual world for commercials, music videos and branded content, and wrote scripts for some productions.'
       ]) + '</div>' +
-      '<div class="m c4"><h2>Earlier</h2><p class="sub">Advertising agencies</p><ul class="plain">' +
-        '<li>FCB San José<span>Lead Designer · 2014 to 2016</span></li>' +
-        '<li>House Rapp<span>Senior Designer · 2013 to 2014</span></li>' +
-        '<li>McCann Worldgroup<span>Mid Designer · 2012 to 2013</span></li>' +
-        '<li>Halsband Worldwide Partners<span>Junior Designer · 2010 to 2012</span></li></ul></div>' +
+      '<div class="m c4"><h2>Earlier experience</h2><p class="sub">Advertising agencies</p><ul class="plain">' +
+        '<li>FCB San José<span>Lead Designer · 2014 to 2016</span><span>Supported the Art Director and mentored junior and mid designers on regional accounts, campaign key visuals and brand identity projects.</span></li>' +
+        '<li>House Rapp<span>Senior Designer · 2013 to 2014</span><span>Key regional accounts: concepts, key visuals and digital materials.</span></li>' +
+        '<li>McCann Worldgroup<span>Mid Designer · 2012 to 2013</span><span>Gollo, Costa Rica’s leading retail brand: concepts, key visuals and in-store materials.</span></li>' +
+        '<li>Halsband Worldwide Partners<span>Junior Designer · 2010 to 2012</span><span>Right hand to the Art Director and CCO on key visuals and campaigns across industries.</span></li></ul></div>' +
 
       '<div class="m c4"><h2>Community and mentoring</h2><p class="sub">Developing designers and teams</p>' + pts([
-        'Co-created the Design Sessions, a recurring forum for Costa Rica’s designers across teams.',
+        'Guided UI designers on d.com pages.',
         'Mentored a junior designer from Deloitte’s SHINE internship program.',
-        'Buddy to an L35 new hire on the brand strategy team.',
-        'Part of the Costa Rica Local Community team, organizing events and activities for the BM&amp;C department.'
+        'Buddy to an L35 new hire on Brand Strategy.',
+        'Co-created the Design Sessions, which position Costa Rica’s designers as trusted experts for the firm.',
+        'Member of the Local Community team organizing events for BM&amp;C.'
       ]) + '</div>' +
       '<div class="m c8"><h2>Skills and tools</h2><p class="sub">What I bring to a team</p><dl class="groups">' +
         '<div><dt>Leadership</dt><dd>' + chips(['Team leadership','Design review','Mentoring','Stakeholder management','Client presentations']) + '</dd></div>' +
-        '<div><dt>Creative</dt><dd>' + chips(['Brand strategy and identity','Brand guidelines','Art direction','Conceptualization and copywriting','Packaging','Editorial design']) + '</dd></div>' +
-        '<div><dt>Process</dt><dd>' + chips(['Agile','Workfront','Cross-channel campaigns']) + '</dd></div>' +
-        '<div><dt>Tools</dt><dd>' + chips(['Figma','Sketch','Illustrator','Photoshop','InDesign','Microsoft Office','Adobe Firefly','Claude','ChatGPT','Gemini','Marketing Workbench','Sidekick']) + '</dd></div></dl></div>' +
+        '<div><dt>Creative</dt><dd>' + chips(['Brand strategy','Visual identity','Art direction','Conceptualization and copywriting','Packaging','Editorial design','Photo manipulation','UI/UX design']) + '</dd></div>' +
+        '<div><dt>Process</dt><dd>' + chips(['Agile','Workfront','Cross-channel campaign delivery']) + '</dd></div>' +
+        '<div><dt>Tools</dt><dd>' + chips(['Adobe Creative Suite','Figma','Sketch','Microsoft Office','Adobe Firefly','Claude','Marketing Workbench','Sidekick']) + '</dd></div></dl></div>' +
 
-      '<div class="m c5"><h2>Education</h2><p class="sub">Degree and ongoing training</p><ul class="plain">' +
+      '<div class="m c5"><h2>Education and courses</h2><p class="sub">Degree and ongoing training</p><ul class="plain">' +
         '<li>Bachelor in Advertising Design<span>Universidad de las Ciencias y el Arte · 2006 to 2009</span></li>' +
-        '<li>Copywriting and Creative Direction<span>Animal Ad School · 2012 to 2013</span></li>' +
-        '<li>Branding workshop with Daniela Garza<span>Mesa Roja · 2020</span></li>' +
-        '<li>Domestika courses with Sagi Haviv, Quique Ollervides and Studio Yeyé<span>Since 2020</span></li></ul></div>' +
+        '<li>English<span>Universidad de Costa Rica · 2005 to 2007</span></li>' +
+        '<li>Copywriting and Conceptualization; Creative Direction<span>Animal Ad School · 2012 to 2013</span></li></ul></div>' +
       '<div class="m c4"><h2>Awards and recognition</h2><p class="sub">Creative work, recognized</p><ul class="plain">' +
-        '<li>Silver Effie<span>With my team at McCann</span></li>' +
-        '<li>Bronze at CR Festival Volcán<span>Costa Rica’s creativity festival. Developed with my copywriter partner from concept to final execution, led by the CCO and art director, at House Rapp</span></li></ul></div>' +
+        '<li>Applause Award and Spot Award<span>Deloitte, for Outstanding Value to Clients</span></li>' +
+        '<li>Silver Effie · 2013<span>With my team at McCann</span></li>' +
+        '<li>Bronze at CR Festival Volcán · 2014<span>Costa Rica’s creativity festival. Developed with my copywriter partner from concept to final execution, led by the CCO and art director, at House Rapp</span></li></ul></div>' +
       '<div class="m c3"><h2>Languages</h2><p class="sub">Bilingual</p>' + chips(['English','Spanish']) + '</div>' +
-      '<div class="m c4 olive"><h2>Resume</h2><p class="sub">My resume as a PDF.</p><a class="btn" href="Adrian-Jimenez-CV.pdf">Download CV (PDF)</a></div>' +
-      '<div class="m c8"><h2>How this site is built</h2><p class="sub">The same care I bring to client work</p><p>I art-directed this site and built it with AI, using Claude with GitHub and Vercel, and I also work with ChatGPT and Gemini. Text meets AA contrast in light and dark, every project opens from a keyboard-reachable link, focus is always visible, and the tile animations pause for anyone who prefers reduced motion.</p></div>' +
+      '<div class="m c4 olive"><h2>Resume</h2><p class="sub">My resume as a PDF.</p><a class="btn" href="Adrian-Jimenez-CV.pdf">Download resume (PDF)</a></div>' +
+      '<div class="m c8"><h2>How this site is built</h2><p class="sub">The same care I bring to client work</p><p>I art-directed this site and built it with AI, using Claude with GitHub and Vercel, and I also work with ChatGPT and Gemini. Text meets AA contrast, every project opens from a keyboard-reachable link, focus is always visible, and the tile animations pause for anyone who prefers reduced motion.</p></div>' +
       '</div></div>';
   }
 
@@ -504,6 +700,28 @@ a { color: inherit; }
       if (on) a.setAttribute('aria-current', 'page'); else a.removeAttribute('aria-current');
     });
     wireTiles();
+    document.querySelectorAll('video[data-loop]').forEach(function (v) {
+      var btn = v.parentNode.querySelector('.vid-btn');
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      function label() { btn.textContent = v.paused ? 'Play' : 'Pause'; btn.setAttribute('aria-label', v.paused ? 'Play animation' : 'Pause animation'); }
+      if (reduce) { v.pause(); } else { var pr = v.play(); if (pr && pr.catch) pr.catch(function () {}); }
+      v.addEventListener('play', label); v.addEventListener('pause', label);
+      btn.addEventListener('click', function () { if (v.paused) v.play(); else v.pause(); });
+      label();
+    });
+    var mb = document.getElementById('marqBtn');
+    if (mb) {
+      var mq = mb.closest('.marq');
+      mb.addEventListener('click', function () {
+        var on = mq.classList.toggle('paused');
+        mb.setAttribute('aria-pressed', on ? 'true' : 'false');
+        mb.textContent = on ? 'Play' : 'Pause';
+      });
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        var vp = document.getElementById('marqViewport');
+        vp.setAttribute('tabindex', '0'); vp.setAttribute('role', 'region'); vp.setAttribute('aria-label', 'Highlights, scrollable');
+      }
+    }
     if (!first) {
       window.scrollTo(0, 0);
       var t = document.getElementById('pageTitle'); (t || main).focus({ preventScroll: true });
