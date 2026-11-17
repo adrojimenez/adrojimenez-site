@@ -129,6 +129,8 @@ a { color: inherit; }
   transition: opacity .5s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1), filter .5s cubic-bezier(.2,.7,.2,1);
 }
 .frame.on { opacity: 1; transform: none; filter: none; }
+.tile .art .frame { opacity: 1; filter: none; transform: scale(1); transition: transform .7s cubic-bezier(.2,.7,.2,1); will-change: transform; }
+@media (hover: hover) { .tile:hover .art .frame, .tile:focus-visible .art .frame { transform: scale(1.04); } }
 .cap { padding: 14px 18px 16px; background: var(--surface); }
 .cap-top { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; }
 .cap p { margin: 4px 0 0; color: var(--muted); font-size: .9rem; line-height: 1.4; max-width: 60ch; }
@@ -175,9 +177,7 @@ a { color: inherit; }
 .vid-btn { position: absolute; left: 12px; bottom: 12px; padding: 6px 14px; border-radius: var(--radius-ui); border: 0; background: var(--cream); color: var(--deep); font: inherit; font-size: .85rem; font-weight: 500; cursor: pointer; }
 .vid-btn:hover { background: var(--mint); }
 .marq { grid-column: span 12; display: grid; gap: 10px; }
-.marq-viewport { overflow: hidden; border-radius: var(--radius-tile);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent);
-          mask-image: linear-gradient(90deg, transparent, #000 4%, #000 96%, transparent); }
+.marq-viewport { overflow: hidden; border-radius: var(--radius-tile); }
 .marq-track { display: flex; width: max-content; animation: marq-slide 60s linear infinite; }
 .marq-group { display: flex; gap: var(--gap); margin: 0; padding: 0 var(--gap) 0 0; list-style: none; }
 .marq .m.stat { flex: 0 0 auto; grid-column: auto; width: clamp(210px, 62vw, 260px); min-height: 170px; }
@@ -187,7 +187,7 @@ a { color: inherit; }
 .marq-btn:hover { background: var(--surface); color: var(--ink); }
 @media (prefers-reduced-motion: reduce) {
   .marq-track { animation: none; }
-  .marq-viewport { overflow-x: auto; -webkit-mask-image: none; mask-image: none; scroll-snap-type: x proximity; }
+  .marq-viewport { overflow-x: auto; scroll-snap-type: x proximity; }
   .marq-group[aria-hidden] { display: none; }
   .marq .m.stat { scroll-snap-align: start; }
   .marq-btn { display: none; }
@@ -276,7 +276,8 @@ a { color: inherit; }
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .frame { transition: none; }
+  .frame, .tile .art .frame { transition: none; }
+  .tile:hover .art .frame, .tile:focus-visible .art .frame { transform: none; }
 }
 </style>
 </head>
@@ -343,7 +344,10 @@ a { color: inherit; }
     "concept": "We presented three concepts, each with its own moodboard, so the portfolio leader could choose. Amplified Focus was selected. As AI accelerates our world, it accelerates human impact. The identity puts the person in sharp focus, in control, while the blurred world around them shows the same person in movement: a metaphor for how AI amplifies capability and speed.",
     "challenge": "Bring Human Capital’s Humans x Machines message, “Scale your human edge,” to life in a distinct identity that stayed fully aligned with Deloitte’s brand, as an extension of the core system and not a replacement. There was no budget or time for a photo shoot.",
     "approach": "I worked with my manager on the three proposals. Once Amplified Focus was chosen, the design team and I developed all the materials and the style guide.\n\nThe core element is a motif of concentric circles behind the subject, expressing impact that radiates outward. The visual system has four image types: primary, industry-specific, secondary, and visual texture. Together they give teams enough material to work with while keeping everything consistent across the account. The guidelines also define the photography style to look for, so anyone creating materials has a clear guide.\n\nFor the imagery, we started from a real photograph of the main subject and used AI tools (Adobe Firefly, Claude, Marketing Workbench, Sidekick) to generate iterations. Refining prompts and combining several models took real effort, and the results made it into the final materials.",
-    "result": "The identity rolled out across d.com, social cards, and events, including the HR Tech booth."
+    "result": "The identity rolled out across d.com, social cards, and events, including the HR Tech booth.",
+    "hero": {"src": "images/hc/01-hero.jpg", "alt": "Human Capital identity board: a blurred figure in motion, the line “Scale your human edge”, Humans x Machines, concentric green circles and the Deloitte logo on green blocks."},
+    "tileFrames": ["images/hc/tile-cover.jpg"],
+    "gallery": [{"src": "images/hc/07-palette.jpg", "alt": "The Human Capital color and texture palette: lime to chartreuse gradient, pale cream, deep green and bright green, alongside blurred green motion photographs.", "span": 12, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/hc/03-woman-coat.jpg", "alt": "A woman in a camel coat carrying a laptop walks past a glass building, with translucent copies of her trailing behind and a green circle behind her.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/hc/04-woman-blazer.jpg", "alt": "A woman in a navy blazer with arms crossed looks off to the side, with a second copy of her on a phone call in the glass reflection and a green circle behind.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/hc/05-couple.jpg", "alt": "Two colleagues look at a tablet in a glass-walled office corridor, with blurred copies of them walking and on calls behind and a green circle between them.", "span": 12, "mspan": 12, "ratio": "2576 / 1113"}, {"src": "images/hc/06-collaboration.jpg", "alt": "Two colleagues smiling at a laptop in a bright meeting room, with blurred copies of them in the glass room and by the window, and a green circle behind.", "span": 12, "mspan": 12, "ratio": "2576 / 1113"}, {"src": "images/hc/08-slides.jpg", "alt": "Presentation slides in the Human Capital style: a dark green title slide “Scale your human edge”, a pale slide with growing lime circles for $18M, $35M and $88M, and a dark Humans x Machines slide.", "span": 7, "mspan": 12, "ratio": "2400 / 1661"}, {"src": "images/hc/10-web.jpg", "alt": "A web page layout with a blurred green banner reading “Scale your human edge”, three cards below it and the executive photograph beneath.", "span": 5, "mspan": 12, "ratio": "2400 / 2031", "fill": true, "pos": "50% 30%"}, {"src": "images/hc/09-social.jpg", "alt": "Four LinkedIn-style social cards using the identity, with headlines such as “Scale your human edge” and “Data smart. Human-centric.” over photographs with a green circle motif.", "span": 12, "mspan": 12, "ratio": "2400 / 845"}, {"src": "images/hc/11-badge.jpg", "alt": "A Deloitte HR Tech 2026 event badge for Anna Hamilton, Portfolio Manager, in dark green with concentric circles, hanging from a lime green lanyard printed “Scale your human edge”, on a concrete floor.", "span": 12, "mspan": 12, "ratio": "16 / 9", "pos": "50% 62%"}]
   },
   {
     "slug": "hr-tech-booth",
@@ -368,7 +372,10 @@ a { color: inherit; }
     "numbers": [["1,500 sq ft", "booth size"], ["7,000", "visitors"], ["3", "d.com page launches in parallel"], ["4", "experience areas"]],
     "insideLabel": "Inside the booth",
     "inside": ["Podcast room", "Demo station", "Speaker stage", "Personalized merch station"],
-    "details": [["Event", "HR Tech"], ["Year", "2026"], ["Unveiled", "Human Capital’s new visual identity (Amplified Focus)"], ["Scope", "Concept to print-ready assets"], ["Collaborators", "Strategic marketers, event planners, account managers, and the creative team, across several sprints"], ["Production", "US vendor, through our event planner"]]
+    "details": [["Event", "HR Tech"], ["Year", "2026"], ["Unveiled", "Human Capital’s new visual identity (Amplified Focus)"], ["Scope", "Concept to print-ready assets"], ["Collaborators", "Strategic marketers, event planners, account managers, and the creative team, across several sprints"], ["Production", "US vendor, through our event planner"]],
+    "hero": {"src": "images/hrtech/01-front-view.jpg", "alt": "Three-quarter view of the HR Tech booth: a green striped stage wall with a Live Session screen, an arch beside a tall “Scale your human edge” graphic, rows of lime green chairs and a hanging Deloitte sign."},
+    "tileFrames": ["images/hrtech/tile-front-view.jpg"],
+    "gallery": [{"src": "images/hrtech/02-back-view.jpg", "alt": "Rear view of the HR Tech booth: a tall “Scale your human edge” panel with an executive photograph, a large arch, a Live Session wall and a Live Recording Capital H Podcast room, under a hanging Deloitte sign.", "span": 12, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/hrtech/03-dcom.jpg", "alt": "Three Deloitte d.com page launches in parallel, each using the new imagery: Health and Welfare and Pension Benefits Administration, Workforce Intelligence Next-Gen Solution, and HR Business Process as a Service.", "span": 7, "mspan": 12, "ratio": "2000 / 1300"}, {"src": "images/hrtech/04-laptop.jpg", "alt": "A laptop resting on a black sculptural chair, showing the Deloitte d.com page for Health and Welfare and Pension Benefits Administration with the executive photograph and green circle.", "span": 5, "mspan": 12, "ratio": "2576 / 1922", "fill": true, "pos": "45% 50%"}]
   },
   {
     "slug": "puralma",
@@ -391,9 +398,9 @@ a { color: inherit; }
     "challenge": "Puralma started as a small window selling desserts and kept growing. When it moved to a much larger space and expanded its menu, it needed a renewed identity to compete in Barrio Escalante, Costa Rica’s main dining district. Its main customers are not vegan, so the brand also had to convince people who eat meat to choose Puralma over restaurants with animal-based options.",
     "approach": "We built the identity around the conviction that earned the kitchen its reputation: “Revolutionary but kind.” It carries through the flower mark, the wordmark, and the tagline, and across packaging, signage, posters, merch, and events, so the brand makes itself known to people outside its core audience.",
     "result": "A brand that reads as confidently as the food tastes, ready for a bigger stage without losing the kindness that built it.",
-    "hero": {"src": "images/puralma/03-posters.jpg", "alt": "Two posters on a periwinkle background: “100% Plant Based” on dark green, and “Kind but revolutionary” on navy beside a large lime flower shape."},
-    "tileFrames": ["images/puralma/tile-03-posters.jpg", "images/puralma/tile-05-tote.jpg", "images/puralma/tile-10-run-club.jpg"],
-    "gallery": [{"src": "images/puralma/14-before-after.jpg", "alt": "Before and after: the old Puralma logo with a lotus drawing beside the new green wordmark and flower mark, over a pattern of leaf shapes.", "span": 12, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/01-badge.jpg", "alt": "A round Puralma badge in lime green on dark green, with the year 2023 and the words brunch, cake, coffee, fun around a 3D flower-shaped mark.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/12-with-love.jpg", "alt": "A lavender flower shape on deep purple with the words “With love, from the tropics”, “Plant-based food” and “Since 2023”.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/04-cups.jpg", "alt": "Stacked and tipped white paper cups printed with the green Puralma wordmark and flower mark, on a wooden table against black.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/07-label.jpg", "alt": "Green wrapping paper patterned with flowers and the letter P, under a navy label with the lime Puralma logo and “Kind never tasted this good”.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/05-tote.jpg", "alt": "A person carrying a canvas tote printed with “Kind but revolutionary”, a short manifesto and the Puralma logo.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/08-apron.jpg", "alt": "A dark green apron printed with a pink flower mark and pink and lavender leaf shapes, hanging against a periwinkle backdrop.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/09-cube-sign.jpg", "alt": "A white cube sign on a concrete wall showing the green Puralma wordmark and flower mark.", "span": 4, "mspan": 12, "ratio": "4 / 5"}, {"src": "images/puralma/10-run-club.jpg", "alt": "A navy Run Club poster, “6 abril, 8 am”, with a runner photographed from below inside a flower-shaped window, beside a watermelon drink on a pink background.", "span": 8, "mspan": 12, "ratio": "16 / 9", "fill": true}]
+    "hero": {"src": "images/puralma/00-hero.jpg", "alt": "The Puralma wordmark in pink above the line “Kind never tasted this good” in cream on periwinkle, with a lime green 3D flower shape in the corner."},
+    "tileFrames": ["images/puralma/tile-00-cover.jpg"],
+    "gallery": [{"src": "images/puralma/14-before-after.jpg", "alt": "Before and after: the old Puralma logo with a lotus drawing beside the new green wordmark and flower mark, over a pattern of leaf shapes.", "span": 12, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/01-badge.jpg", "alt": "A round Puralma badge in lime green on dark green, with the year 2023 and the words brunch, cake, coffee, fun around a 3D flower-shaped mark.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/12-with-love.jpg", "alt": "A lavender flower shape on deep purple with the words “With love, from the tropics”, “Plant-based food” and “Since 2023”.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/04-cups.jpg", "alt": "Stacked and tipped white paper cups printed with the green Puralma wordmark and flower mark, on a wooden table against black.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/07-label.jpg", "alt": "Green wrapping paper patterned with flowers and the letter P, under a navy label with the lime Puralma logo and “Kind never tasted this good”.", "span": 3, "mspan": 6, "ratio": "4 / 5"}, {"src": "images/puralma/05-tote.jpg", "alt": "A person carrying a canvas tote printed with “Kind but revolutionary”, a short manifesto and the Puralma logo.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/03-posters.jpg", "alt": "Two posters on a periwinkle background: “100% Plant Based” on dark green, and “Kind but revolutionary” on navy beside a large lime flower shape.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/puralma/16-shipping-boxes.jpg", "alt": "A person carrying two stacked green Puralma shipping boxes printed with “Kind never tasted this good” in lime, with a flower mark on the side.", "span": 6, "mspan": 12, "ratio": "6 / 5"}, {"src": "images/puralma/15-bottle-cap.jpg", "alt": "Two bottle caps on deep purple: a purple one reading “With love from the tropics” around the flower mark, and an open lime one printed “Kind never tasted this good”.", "span": 6, "mspan": 12, "ratio": "6 / 5"}, {"src": "images/puralma/17-food-container.jpg", "alt": "Takeaway food containers in dark green with a cream sleeve showing the flower mark and “Kind never tasted this good”, repeated on a periwinkle background.", "span": 6, "mspan": 12, "ratio": "6 / 5"}, {"src": "images/puralma/18-cup-carrier.jpg", "alt": "A lime green cardboard cup carrier reading “Kind but revolutionary” holding two green Puralma cups on a wooden chair against a green wall.", "span": 6, "mspan": 12, "ratio": "6 / 5"}, {"type": "video", "src": "images/puralma/motion.mp4", "poster": "images/puralma/motion-poster.jpg", "alt": "A lime green 3D flower shape turning on a periwinkle background.", "span": 6, "mspan": 12, "ratio": "1 / 1"}, {"src": "images/puralma/09-cube-sign.jpg", "alt": "A white cube sign on a concrete wall showing the green Puralma wordmark and flower mark.", "span": 6, "mspan": 12, "ratio": "1 / 1", "fill": true, "pos": "50% 45%"}, {"src": "images/puralma/10-run-club.jpg", "alt": "A navy Run Club poster, “6 abril, 8 am”, with a runner photographed from below inside a flower-shaped window, beside a watermelon drink on a pink background.", "span": 12, "mspan": 12, "ratio": "16 / 9"}]
   },
   {
     "slug": "susana-mendez",
@@ -443,7 +450,7 @@ a { color: inherit; }
     "result": "The space never opened, but the system remains one of the most complete identities in our portfolio.",
     "hero": {"src": "images/coco/01-cans.jpg", "alt": "A pile of neon green Co.Co brew cans with cream labels reading “in-house craft beer, lager, 6,0%”, wrapped in a black and white pattern."},
     "tileFrames": ["images/coco/tile-01-cans.jpg", "images/coco/tile-04-coffee-cup.jpg", "images/coco/tile-05-social.jpg"],
-    "gallery": [{"src": "images/coco/02-logo-system.jpg", "alt": "Three Co.Co logo lockups in black on pale yellow, each with a different symbol between the two Co’s, labeled brew, tech and workspaces.", "span": 7, "mspan": 12, "ratio": "1 / 1", "fill": true}, {"src": "images/coco/03-business-cards.jpg", "alt": "Two Co.Co [workspaces] business cards, one lime green with the logo and one white with a name and contact details, on a black metal rack.", "span": 5, "mspan": 12, "ratio": "4 / 5"}, {"src": "images/coco/04-coffee-cup.jpg", "alt": "A to-go coffee cup with a black lid and a lime green and cream sleeve printed with Co.Co [brew] and “specialty coffee”.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/coco/05-social.jpg", "alt": "Three phone screens with social posts: workspaces in lime green, specialty coffee on dark, and a hand holding a beer under the taps.", "span": 6, "mspan": 12, "ratio": "16 / 9"}]
+    "gallery": [{"src": "images/coco/02-logo-system.jpg", "alt": "Three Co.Co logo lockups in black on pale yellow, each with a different symbol between the two Co’s, labeled brew, tech and workspaces.", "span": 7, "mspan": 12, "ratio": "1 / 1", "fill": true}, {"src": "images/coco/03-business-cards.jpg", "alt": "Two Co.Co [workspaces] business cards, one lime green with the logo and one white with a name and contact details, on a black metal rack.", "span": 5, "mspan": 12, "ratio": "4 / 5"}, {"src": "images/coco/04-coffee-cup.jpg", "alt": "A to-go coffee cup with a black lid and a lime green and cream sleeve printed with Co.Co [brew] and “specialty coffee”.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/coco/05-social.jpg", "alt": "Three phone screens with social posts: workspaces in lime green, specialty coffee on dark, and a hand holding a beer under the taps.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"type": "video", "src": "images/coco/motion-a.mp4", "poster": "images/coco/motion-a-poster.jpg", "alt": "Looping animation: a ring of tiny Co letters circling an asterisk on lime green.", "span": 12, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/coco/07-sign.jpg", "alt": "A square light box on a gray tiled wall showing the lime green Co.Co [workspaces] logo on black.", "span": 6, "mspan": 12, "ratio": "1 / 1"}, {"src": "images/coco/06-cans-vertical.jpg", "alt": "A pile of Co.Co [brew] lager cans with lime green tops and black and white patterned sleeves.", "span": 6, "mspan": 12, "ratio": "1 / 1", "fill": true, "pos": "50% 45%"}, {"src": "images/coco/08-stairs.jpg", "alt": "The white Co.Co [brew] logo on black beside a blurred silhouette climbing a frosted glass staircase.", "span": 8, "mspan": 12, "ratio": "16 / 9", "fill": true}, {"type": "video", "src": "images/coco/motion-b.mp4", "poster": "images/coco/motion-b-poster.jpg", "alt": "Looping animation: lime green shapes on black turning from a ring of circles into a starburst.", "span": 4, "mspan": 12, "ratio": "1 / 1"}]
   },
   {
     "slug": "base-programming",
@@ -468,7 +475,7 @@ a { color: inherit; }
     "result": "An identity that expresses the brand’s philosophy in its own construction, and flexes across bottles, photography, and video.",
     "hero": {"src": "images/base/01-sign.jpg", "alt": "Illuminated pink BASE sign mounted on a dark tiled wall."},
     "tileFrames": ["images/base/tile-01-sign.jpg", "images/base/tile-07-seek-discomfort.jpg", "images/base/tile-10-running-club.jpg"],
-    "gallery": [{"src": "images/base/02-logo-grid.jpg", "alt": "The BASE wordmark in white on black, shown with its construction grid.", "span": 12, "mspan": 12, "ratio": "21 / 9"}, {"type": "video", "src": "images/base/logo-motion.mp4", "poster": "images/base/logo-motion-poster.jpg", "alt": "Looping animation of the BASE mark and wordmark transforming and stretching.", "span": 4, "mspan": 12, "ratio": "1 / 1"}, {"src": "images/base/05-training.jpg", "alt": "BASE mark and wordmark over a black and white photo of an athlete lifting a barbell.", "span": 4, "mspan": 6, "ratio": "1 / 1"}, {"src": "images/base/06-bottle.jpg", "alt": "A hand holding a black BASE water bottle with a pink letterform on it.", "span": 4, "mspan": 6, "ratio": "1 / 1", "pos": "50% 45%"}, {"src": "images/base/07-seek-discomfort.jpg", "alt": "A woman on an air bike in a gym, with “Seek discomfort” set in large type.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/10-running-club.jpg", "alt": "BASE Running Club poster: a woman in a yellow top mid-run beside bold white type.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/03-bracket.jpg", "alt": "A pink bracket shape framing a cropped photo and the BASE wordmark on a dark slide.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/04-social.jpg", "alt": "Three vertical social story designs: two photos with the BASE logo and a pink save-the-date card.", "span": 6, "mspan": 12, "ratio": "16 / 9"}]
+    "gallery": [{"src": "images/base/02-logo-grid.jpg", "alt": "The BASE wordmark in white on black, shown with its construction grid.", "span": 12, "mspan": 12, "ratio": "21 / 9"}, {"type": "video", "src": "images/base/logo-motion.mp4", "poster": "images/base/logo-motion-poster.jpg", "alt": "Looping animation of the BASE mark and wordmark transforming and stretching.", "span": 4, "mspan": 12, "ratio": "1 / 1"}, {"src": "images/base/05-training.jpg", "alt": "BASE mark and wordmark over a black and white photo of an athlete lifting a barbell.", "span": 4, "mspan": 6, "ratio": "1 / 1"}, {"src": "images/base/06-bottle.jpg", "alt": "A hand holding a black BASE water bottle with a pink letterform on it.", "span": 4, "mspan": 6, "ratio": "1 / 1", "pos": "50% 45%"}, {"type": "video", "src": "images/base/wordmark-motion.mp4", "poster": "images/base/wordmark-motion-poster.jpg", "alt": "Looping animation of the BASE mark and wordmark built from a single stretching bar, on black and white.", "span": 6, "mspan": 12, "ratio": "1 / 1"}, {"src": "images/base/11-lifting.jpg", "alt": "BASE mark and wordmark over a black and white photo of an athlete holding a barbell across the shoulders.", "span": 6, "mspan": 12, "ratio": "1 / 1", "pos": "50% 35%", "fill": true}, {"src": "images/base/07-seek-discomfort.jpg", "alt": "A woman on an air bike in a gym, with “Seek discomfort” set in large type.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/10-running-club.jpg", "alt": "BASE Running Club poster: a woman in a yellow top mid-run beside bold white type.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/12-athlete.jpg", "alt": "Black and white portrait of an athlete in a BASE shirt, in hard sunlight on a cardio machine.", "span": 12, "mspan": 12, "ratio": "21 / 9", "pos": "50% 38%"}, {"src": "images/base/03-bracket.jpg", "alt": "A pink bracket shape framing a cropped photo and the BASE wordmark on a dark slide.", "span": 6, "mspan": 12, "ratio": "16 / 9"}, {"src": "images/base/04-social.jpg", "alt": "Three vertical social story designs: two photos with the BASE logo and a pink save-the-date card.", "span": 6, "mspan": 12, "ratio": "16 / 9"}]
   }
 ];
 
@@ -500,8 +507,8 @@ a { color: inherit; }
 
   function tileHTML(p) {
     var frames = p.tileFrames
-      ? p.tileFrames.map(function (src) { return '<div class="frame f-img"><img src="' + src + '" alt="" loading="lazy" decoding="async"></div>'; }).join('')
-      : p.order.map(function (k) { return frame(k, p); }).join('');
+      ? p.tileFrames.slice(0, 1).map(function (src) { return '<div class="frame f-img"><img src="' + src + '" alt="" loading="lazy" decoding="async"></div>'; }).join('')
+      : p.order.slice(0, 1).map(function (k) { return frame(k, p); }).join('');
     return '<a class="tile ' + p.size + '" href="#work-' + p.slug + '" data-nav>' +
       '<div class="art" aria-hidden="true">' + frames + '</div>' +
       '<div class="cap"><div class="cap-top"><h2>' + p.title + '</h2><span>' + p.cat + '</span></div><p>' + p.tile + '</p></div></a>';
@@ -663,25 +670,7 @@ a { color: inherit; }
     observers.forEach(function (o) { o.disconnect(); }); observers = [];
   }
 
-  function wireTiles() {
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    var touch = window.matchMedia('(hover: none)').matches;
-    document.querySelectorAll('.tile').forEach(function (tile) {
-      var frames = tile.querySelectorAll('.frame'), idx = 0, t = null;
-      function show(n) { frames.forEach(function (f, j) { f.classList.toggle('on', j === n); }); }
-      show(0);
-      if (reduce) return;
-      function start() { if (t) return; t = setInterval(function () { idx = (idx + 1) % frames.length; show(idx); }, 1100); timers.push(t); setTimeout(function () { if (t) { idx = (idx + 1) % frames.length; show(idx); } }, 0); }
-      function stop() { clearInterval(t); t = null; idx = 0; show(0); }
-      if (touch) {
-        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { e.isIntersecting ? start() : stop(); }); }, { threshold: 0.6 });
-        io.observe(tile); observers.push(io);
-      } else {
-        tile.addEventListener('mouseenter', start); tile.addEventListener('mouseleave', stop);
-        tile.addEventListener('focus', start); tile.addEventListener('blur', stop);
-      }
-    });
-  }
+  function wireTiles() {}
 
   function render(first) {
     stopAll();
